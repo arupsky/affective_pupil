@@ -1,0 +1,989 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"data",
+				"dataY"
+			],
+			[
+				"si",
+				"stimuliList"
+			],
+			[
+				"in",
+				"index"
+			],
+			[
+				"ne",
+				"negativeData2"
+			],
+			[
+				"ex",
+				"extend"
+			],
+			[
+				"get",
+				"getNegativeData1"
+			],
+			[
+				"da",
+				"dataFiles"
+			],
+			[
+				"pup",
+				"pupilList"
+			],
+			[
+				"plot",
+				"plotFirst100Points"
+			],
+			[
+				"pl",
+				"plot"
+			],
+			[
+				"re",
+				"readCSV"
+			],
+			[
+				"resource",
+				"resourceName"
+			],
+			[
+				"res",
+				"resourceName"
+			],
+			[
+				"lo",
+				"location"
+			],
+			[
+				"fi",
+				"filteredModules"
+			],
+			[
+				"mod",
+				"modules"
+			],
+			[
+				"mo",
+				"modules"
+			],
+			[
+				"m",
+				"modules"
+			],
+			[
+				"wi",
+				"width\tproperty"
+			],
+			[
+				"metho",
+				"methods"
+			],
+			[
+				"modu",
+				"module"
+			],
+			[
+				"Mod",
+				"ModuleButtons"
+			],
+			[
+				"dis",
+				"displayObject"
+			],
+			[
+				"bo",
+				"border-bottom\tproperty"
+			],
+			[
+				"tex",
+				"text-align\tproperty"
+			],
+			[
+				"Res",
+				"ResourceButtons"
+			],
+			[
+				"Re",
+				"ResourceButtons"
+			],
+			[
+				"fo",
+				"font-size\tproperty"
+			],
+			[
+				"r",
+				"rgba()\tbackground-color"
+			],
+			[
+				"ba",
+				"background-color\tproperty"
+			],
+			[
+				"fon",
+				"font-size\tproperty"
+			],
+			[
+				"select",
+				"selectMode"
+			],
+			[
+				"ht",
+				"html"
+			],
+			[
+				"sco",
+				"scoreLabel"
+			],
+			[
+				"poda-cl",
+				"poda-clickable-upscore"
+			],
+			[
+				"sele",
+				"selectScore"
+			],
+			[
+				"remo",
+				"removeClass"
+			],
+			[
+				"cur",
+				"currentTarget"
+			],
+			[
+				"la",
+				"lastElementChild"
+			],
+			[
+				"text",
+				"text-right"
+			],
+			[
+				"se",
+				"select\tTag"
+			],
+			[
+				"im",
+				"image"
+			],
+			[
+				"bas",
+				"baselineFolder"
+			],
+			[
+				"ran",
+				"randC"
+			],
+			[
+				"img",
+				"imgList"
+			],
+			[
+				"ar",
+				"argv"
+			],
+			[
+				"te",
+				"temp"
+			],
+			[
+				"his",
+				"history"
+			],
+			[
+				"no",
+				"nowrap"
+			],
+			[
+				"ter",
+				"termsData"
+			],
+			[
+				"fac",
+				"facetData"
+			],
+			[
+				"tm",
+				"tmpl_facet"
+			],
+			[
+				"pad",
+				"padding-right"
+			],
+			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"hi",
+				"hidden"
+			],
+			[
+				"bor",
+				"border-bottom"
+			],
+			[
+				"bord",
+				"border-bottom"
+			],
+			[
+				"poda",
+				"poda-tabs"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"li",
+				"link\tTag"
+			],
+			[
+				"que",
+				"querySelector"
+			],
+			[
+				"write",
+				"writeCsvFile"
+			],
+			[
+				"cs",
+				"csv_directory"
+			],
+			[
+				"ou",
+				"output_dim"
+			],
+			[
+				"l",
+				"layer_numbers"
+			],
+			[
+				"tra",
+				"training_data"
+			],
+			[
+				"ra",
+				"range"
+			],
+			[
+				"pare",
+				"parentNode"
+			],
+			[
+				"poda-",
+				"poda-collapse"
+			],
+			[
+				"ma",
+				"margin-bottom"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"pip",
+				"pipeElement"
+			],
+			[
+				"el",
+				"element"
+			],
+			[
+				"highligh",
+				"highLightScope"
+			],
+			[
+				"y",
+				"y_test"
+			],
+			[
+				"Y",
+				"y_train"
+			],
+			[
+				"X",
+				"X_test"
+			],
+			[
+				"park",
+				"parking_info"
+			],
+			[
+				"ap",
+				"api_host"
+			],
+			[
+				"a",
+				"apiCall"
+			],
+			[
+				"par",
+				"parking_data"
+			],
+			[
+				"u",
+				"url"
+			],
+			[
+				"ti",
+				"ticks_gone"
+			],
+			[
+				"tic",
+				"ticks_gone"
+			],
+			[
+				"tim",
+				"timescale"
+			],
+			[
+				"flex",
+				"flex-column"
+			],
+			[
+				"d",
+				"d-flex"
+			],
+			[
+				"fl",
+				"flex-grow-1"
+			],
+			[
+				"va",
+				"val"
+			],
+			[
+				"loca",
+				"locationId"
+			],
+			[
+				"form",
+				"form-group"
+			],
+			[
+				"op",
+				"option\tTag"
+			],
+			[
+				"drw",
+				"drawRoute"
+			],
+			[
+				"pro",
+				"prob"
+			],
+			[
+				"th",
+				"thead\tTag"
+			],
+			[
+				"fre",
+				"free_percentages"
+			],
+			[
+				"col",
+				"col-12"
+			],
+			[
+				"sel",
+				"selected_route"
+			],
+			[
+				"pre",
+				"previous_location"
+			],
+			[
+				"bes",
+				"best"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"mode",
+				"modelLoaded"
+			],
+			[
+				"Get",
+				"GetOutputValueByType"
+			],
+			[
+				"raw",
+				"raw_data_array"
+			],
+			[
+				"num",
+				"num_lines"
+			],
+			[
+				"input",
+				"input_file"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"co",
+				"console"
+			],
+			[
+				"fr",
+				"free"
+			],
+			[
+				"is",
+				"is_snowing"
+			],
+			[
+				"trai",
+				"training_data"
+			],
+			[
+				"cons",
+				"const"
+			],
+			[
+				"tr",
+				"traffic"
+			],
+			[
+				"por",
+				"processData"
+			],
+			[
+				"jso",
+				"jsonResponse"
+			],
+			[
+				"js",
+				"jsonResponse"
+			],
+			[
+				"fe",
+				"features_list"
+			],
+			[
+				"result",
+				"results_panel"
+			],
+			[
+				"show",
+				"showCurrentInformation"
+			],
+			[
+				"mapo",
+				"mapOnClick"
+			],
+			[
+				"map",
+				"mapOnLoad"
+			],
+			[
+				"us",
+				"user_location"
+			],
+			[
+				"sen",
+				"sents"
+			],
+			[
+				"end",
+				"endvalue"
+			],
+			[
+				"out",
+				"outfile"
+			],
+			[
+				"to",
+				"token"
+			],
+			[
+				"star",
+				"start"
+			],
+			[
+				"en",
+				"ents"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "DataExtractor/DataExtractor.py",
+			"settings":
+			{
+				"buffer_size": 2032,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "- distribution\n\t- weibol distribution\n\t- ",
+			"file": "experimentList.txt",
+			"file_size": 0,
+			"file_write_time": 132087488584583864,
+			"settings":
+			{
+				"buffer_size": 41,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "DataExtractor/ExperimentPipe.py",
+			"settings":
+			{
+				"buffer_size": 2094,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "DataExtractor/CSVParser.py",
+			"settings":
+			{
+				"buffer_size": 2162,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 209.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"up",
+				"Package Control: List Unmanaged Packages"
+			],
+			[
+				"Snippet: ",
+				"Snippet: html"
+			]
+		],
+		"width": 412.0
+	},
+	"console":
+	{
+		"height": 112.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/user/Thesis/experiments",
+		"/Users/user/Thesis/experiments/DataExtractor"
+	],
+	"file_history":
+	[
+		"/Users/user/Desktop/ResourceButtons.vue",
+		"/Users/user/Hiwi/Civil Hiwi/blank-project/.gitignore",
+		"/Users/user/Hiwi/Civil Hiwi/blank-project/.eslintrc.json",
+		"/Users/user/Hiwi/Civil Hiwi/blank-project/babel.config.js",
+		"/Users/user/Hiwi/Civil Hiwi/vue-pipe/src/App.vue",
+		"/Users/user/Hiwi/Civil Hiwi/vue-pipe/src/components/ResourceButtons.vue",
+		"/usr/local/etc/nginx/nginx.conf",
+		"/Users/user/Hiwi/Civil Hiwi/vue-pipe/src/components/TitleBar.vue",
+		"/Users/user/Hiwi/Civil Hiwi/blank-project/app.js",
+		"/Users/user/Webis-Hiwi/poda-2/src/main/resources/poda/podascope-pipe.html",
+		"/Users/user/Webis-Hiwi/poda-2/src/main/resources/poda/podascope-pipe.js",
+		"/Users/user/Thesis/psychopy/iViewXAPI.py",
+		"/Users/user/Thesis/psychopy/assets/negative2.json",
+		"/Users/user/Thesis/psychopy/assets/positive.json",
+		"/Users/user/Thesis/psychopy/assets/_json_files/positive.json",
+		"/Users/user/Hiwi/Civil Hiwi/vue-pipe/src/components/FileList.vue",
+		"/Users/user/Hiwi/Civil Hiwi/vue-pipe/src/components/file_table_row.vue",
+		"/Users/user/Hiwi/Civil Hiwi/vue-pipe/src/repository/moduleRepository.js",
+		"/Users/user/Hiwi/Civil Hiwi/vue-pipe/package.json",
+		"/Users/user/Hiwi/Civil Hiwi/vue-pipe/src/repository/store.js",
+		"/Users/user/Hiwi/Civil Hiwi/vue-pipe/src/repository/repository.js",
+		"/Users/user/Thesis/psychopy/assets/_json_files/modify.py",
+		"/Users/user/Thesis/corinna/true_feedback_lastrun.py",
+		"/Users/user/Thesis/psychopy/data/1_untitled_2019_Jun_13_1006.csv",
+		"/Users/user/Workshop/OnSpaDi/onspadi-forecast/TrainTest.py",
+		"/Users/user/Thesis/Resources/GAPED/GAPED/H.txt",
+		"/Users/user/Desktop/front-podascope-pipe.js",
+		"/Users/user/Desktop/front-podascope-pipe.html",
+		"/Users/user/Thesis/psychopy/data/rupom_untitled_2019_Jun_18_1623.csv",
+		"/Users/user/Desktop/Assignment4/image_filtering.m",
+		"/Users/user/Thesis/psychopy/assets/negative.json",
+		"/Users/user/Thesis/psychopy/assets/_json_files/negative.json",
+		"/Users/user/Thesis/psychopy/assets/_json_files/neutral.json",
+		"/Users/user/Hiwi/Civil Hiwi/blank-project/index.html",
+		"/Users/user/Hiwi/Civil Hiwi/blank-project/style/style.css",
+		"/Volumes/INTENSO/baseline/end routine.txt",
+		"/Volumes/INTENSO/baseline/each frame.txt",
+		"/Volumes/INTENSO/baseline/begin routine.txt",
+		"/Volumes/INTENSO/baseline/begin experiment.txt",
+		"/Users/user/Thesis/clean data/out.csv",
+		"/Users/user/Thesis/Resources/GAPED/GAPED/PickerArousal.py",
+		"/Users/user/Thesis/Resources/GAPED/GAPED/ProcessImageData.py",
+		"/Users/user/Thesis/Resources/GAPED/GAPED/negative.json",
+		"/Users/user/Thesis/Resources/GAPED/GAPED/PickerValance.py",
+		"/Users/user/Desktop/Exercise 3/GoG.m",
+		"/Users/user/Desktop/Exercise 3/Main.m",
+		"/Users/user/Thesis/Resources/GAPED/GAPED/P.txt",
+		"/Users/user/Thesis/Resources/GAPED/GAPED/N.txt",
+		"/Users/user/Thesis/Resources/GAPED/GAPED/A.txt",
+		"/Users/user/Thesis/Resources/GAPED/GAPED/negative.out",
+		"/Users/user/Thesis/Resources/GAPED/GAPED/valance.out",
+		"/Users/user/Thesis/psychopy/untitled.py",
+		"/Users/user/Thesis/Resources/GAPED/GAPED/arousal.out",
+		"/Users/user/Thesis/Resources/GAPED/GAPED/ProcessImageData",
+		"/Applications/XAMPP/xamppfiles/htdocs/ara_demo/assets/contactInfo.json",
+		"/Applications/XAMPP/xamppfiles/htdocs/ara_demo/application/models/ContactModel.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ara_demo/application/controllers/Profile.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ara_demo/application/config/database.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ara_demo/application/config/config2.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ara_demo/application/config/config.php",
+		"/Users/user/Workshop/OnSpaDi/onspadi-forecast/evaluation/Benchmark.py",
+		"/Users/user/Workshop/OnSpaDi/onspadi-frontend/js/misc.js",
+		"/Users/user/Workshop/OnSpaDi/onspadi-frontend/assign_sensors.html",
+		"/Users/user/Workshop/OnSpaDi/onspadi-frontend/parking_status.html",
+		"/Users/user/Workshop/OnSpaDi/onspadi-frontend/js/parking-status.js",
+		"/Users/user/Workshop/OnSpaDi/onspadi-forecast/evaluation/Trainer.py",
+		"/Users/user/Workshop/OnSpaDi/onspadi-forecast/evaluation/csvs/accuracy_1558220451.5773351.csv",
+		"/Users/user/Workshop/OnSpaDi/onspadi-forecast/evaluation/EvaluateTraining.py",
+		"/Users/user/Thesis/Resources/GAPED/GAPED/Picker.py",
+		"/Users/user/Desktop/poda-scope-screenshots/addNew.html",
+		"/Users/user/Desktop/poda-scope-screenshots/js/details.js",
+		"/Users/user/Desktop/poda-scope-screenshots/js/facet.js",
+		"/Users/user/Desktop/poda-scope-screenshots/details.html",
+		"/Users/user/Desktop/poda-scope-screenshots/facet.html",
+		"/Users/user/Desktop/poda-scope-screenshots/facet.js",
+		"/Users/user/Desktop/Image Analysis - Assignment 2/Main.m",
+		"/Users/user/Desktop/Image Analysis - Assignment 2/GoG.m",
+		"/Users/user/Desktop/Image Analysis - Assignment 2/CornernessRoundness.m",
+		"/Users/user/Desktop/Image Analysis - Assignment 2/CornerPoints.m",
+		"/Users/user/Desktop/Image Analysis - Assignment 2/Filtering.m",
+		"/Users/user/Desktop/Image Analysis - Assignment 2/Magnitude.m",
+		"/Users/user/Desktop/Image Analysis - Assignment 2/Overlay.m",
+		"/Users/user/Workshop/OnSpaDi/onspadi-forecast/evaluation/EvaluateGenerateJson.py",
+		"/Users/user/Workshop/Thesis/clean data/CleanData.py",
+		"/Users/user/Workshop/OnSpaDi/onspadi-forecast/evaluation/csvs/accuracy_1557625145.330963.csv",
+		"/Users/user/Workshop/Thesis/Resources/GAPED/GAPED/A_with SD.txt",
+		"/Users/user/Workshop/Thesis/Resources/GAPED/GAPED/A.txt",
+		"/Users/user/Workshop/OnSpaDi/onspadi-forecast/evaluation/data_files/data0.json",
+		"/Users/user/Workshop/OnSpaDi/onspadi-forecast/evaluation/data_files/data1.json",
+		"/Users/user/Workshop/OnSpaDi/onspadi-forecast/evaluation/data_files/data2.json",
+		"/Users/user/Workshop/OnSpaDi/forecast test/TrainTest.py",
+		"/Users/user/Workshop/Thesis/fwddata/patrick-saad/experiment-1/run.py",
+		"/Users/user/Workshop/OnSpaDi/onspadi-forecast/GenerateDataJson.py",
+		"/Users/user/Workshop/Thesis/fwddata/patrick-saad/experiment-1/ml-models/visualize-data.py",
+		"/Users/user/Workshop/Thesis/fwddata/patrick-saad/experiment-1/ml-models/process-data.py",
+		"/Users/user/Workshop/Thesis/fwddata/patrick-saad/experiment-1/ml-models/generate-models.py",
+		"/Users/user/Workshop/Thesis/fwddata/patrick-saad/experiment-1/ml-models/experiments/experiment-2/processed_data/data_values_with_class/2.csv",
+		"/Users/user/Workshop/Thesis/fwddata/patrick-saad/experiment-1/ml-models/experiment-1/processed_data/data_values_with_class/1.csv",
+		"/Users/user/Workshop/Thesis/fwddata/patrick-saad/experiment-1/ml-models/experiments/experiment-2/processed_data/data_values_with_class/1.csv",
+		"/Users/user/Desktop/Assignment 1 - Image Analysis/binarization.m",
+		"/Users/user/Desktop/Assignment 1 - Image Analysis/morphological_filtering.m",
+		"/Users/user/Desktop/Group-7/main.m",
+		"/Users/user/Desktop/Group-7/morphological_filtering.m",
+		"/Users/user/Desktop/Group-7/binarization.m",
+		"/Users/user/Desktop/Group-7/contrast_enhancement.m",
+		"/Users/user/Workshop/Thesis/fwddata/patrick-saad/experiment-1/ml-models/experiment-1/processed_data/data_values_with_class/6.csv",
+		"/Users/user/Workshop/Thesis/clean data/out.csv",
+		"/Users/user/Workshop/Thesis/clean data/out.txt",
+		"/Users/user/Workshop/Thesis/fwddata/_testing_2019_Apr_17_1617.csv",
+		"/Users/user/Workshop/Thesis/fwddata/1_testing_2019_Apr_17_1617.csv",
+		"/Users/user/Workshop/OnSpaDi/frontend-onspadi/parking_status.html",
+		"/Users/user/Workshop/OnSpaDi/frontend-onspadi/test.html",
+		"/Users/user/Workshop/OnSpaDi/frontend-onspadi/js/algorithm-test.js",
+		"/Users/user/Workshop/OnSpaDi/frontend-onspadi/js/parking-status.js",
+		"/Users/user/Workshop/OnSpaDi/frontend-onspadi/js/misc.js",
+		"/Users/user/Workshop/OnSpaDi/sensor simulator/Simulator.py",
+		"/Users/user/Workshop/OnSpaDi/frontend-onspadi/js/add-parking.js",
+		"/Users/user/Workshop/OnSpaDi/frontend-onspadi/add_parking.html",
+		"/Users/user/Workshop/OnSpaDi/frontend-onspadi/js/assign-sensors.js",
+		"/Users/user/Workshop/OnSpaDi/frontend-onspadi/assign_sensors.html",
+		"/Users/user/Workshop/OnSpaDi/frontend/.htaccess",
+		"/Users/user/Workshop/OnSpaDi/frontend/js/add-parking.js",
+		"/Users/user/Workshop/OnSpaDi/frontend/test.html",
+		"/Users/user/Workshop/OnSpaDi/frontend/js/algorithm-test.js",
+		"/Users/user/Workshop/OnSpaDi/frontend/add_parking.html",
+		"/Users/user/Workshop/OnSpaDi/frontend/parking_status.html",
+		"/Users/user/Workshop/OnSpaDi/frontend/css/custom.css",
+		"/Users/user/Workshop/OnSpaDi/frontend/css/style.css"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "DataExtractor/DataExtractor.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2032,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								935,
+								935
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "experimentList.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 41,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								41,
+								41
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "DataExtractor/ExperimentPipe.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2094,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1777,
+								1777
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 177.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "DataExtractor/CSVParser.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2162,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1086,
+								1070
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 156.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 120.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "untitled.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 215.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

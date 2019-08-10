@@ -9,6 +9,8 @@ class Formatter(object):
 		self.inputFolder = "DataCollector/Outputs/"
 		self.outputFolder = "Formatter/Outputs/"
 		self.data = []
+		self.interestingZone = 180
+		self.baselineEffectZone = 60
 		
 
 	def formatLatest(self):
@@ -37,6 +39,19 @@ class Formatter(object):
 
 	# data from useful region only are extracted here
 	def process(self, data):
-		return data
+
+		processed = []
+
+		for dt in data:
+			temp = {}
+			temp["type"] = dt["type"]
+			temp["baselineList"] = dt["baselineList"]
+			temp["baselineMean"] = sum(temp["baselineList"][len(temp["baselineList"])-self.baselineEffectZone:])/self.baselineEffectZone
+			temp["pupilList"] = dt["pupilList"][:self.interestingZone]
+			temp["pupilMean"] = sum(temp["pupilList"])/self.interestingZone
+			processed.append(temp)
+
+
+		return processed
 
 

@@ -520,7 +520,7 @@
 	"buffers":
 	[
 		{
-			"file": "DataExtractor/DataExtractor.py",
+			"file": "/Users/user/Thesis/experiments/DataExtractor/DataExtractor.py",
 			"settings":
 			{
 				"buffer_size": 2032,
@@ -530,7 +530,7 @@
 		},
 		{
 			"contents": "- distribution\n\t- weibol distribution\n\t- ",
-			"file": "experimentList.txt",
+			"file": "/Users/user/Thesis/experiments/experimentList.txt",
 			"file_size": 0,
 			"file_write_time": 132087488584583864,
 			"settings":
@@ -540,7 +540,7 @@
 			}
 		},
 		{
-			"file": "DataExtractor/ExperimentPipe.py",
+			"file": "/Users/user/Thesis/experiments/DataExtractor/ExperimentPipe.py",
 			"settings":
 			{
 				"buffer_size": 3404,
@@ -549,7 +549,7 @@
 			}
 		},
 		{
-			"file": "Evaluation/Evaluation.py",
+			"file": "Evaluation.py",
 			"settings":
 			{
 				"buffer_size": 296,
@@ -558,7 +558,7 @@
 			}
 		},
 		{
-			"file": "Evaluation/FeatureDataProvider/FeatureDataProvider.py",
+			"file": "FeatureDataProvider/FeatureDataProvider.py",
 			"settings":
 			{
 				"buffer_size": 167,
@@ -567,7 +567,7 @@
 			}
 		},
 		{
-			"file": "Evaluation/Formatter/__init__.py",
+			"file": "Formatter/__init__.py",
 			"settings":
 			{
 				"buffer_size": 0,
@@ -575,7 +575,7 @@
 			}
 		},
 		{
-			"file": "Evaluation/Formatter/Formatter.py",
+			"file": "Formatter/Formatter.py",
 			"settings":
 			{
 				"buffer_size": 1646,
@@ -584,7 +584,7 @@
 			}
 		},
 		{
-			"file": "Evaluation/Formatter/Outputs/1.json",
+			"file": "Formatter/Outputs/1.json",
 			"settings":
 			{
 				"buffer_size": 469452,
@@ -592,7 +592,7 @@
 			}
 		},
 		{
-			"file": "Evaluation/UsefulRegionChecker/UsefulRegionChecker.py",
+			"file": "UsefulRegionChecker/UsefulRegionChecker.py",
 			"settings":
 			{
 				"buffer_size": 1682,
@@ -601,7 +601,7 @@
 			}
 		},
 		{
-			"file": "Evaluation/DataCollector/DataCollector.py",
+			"file": "DataCollector/DataCollector.py",
 			"settings":
 			{
 				"buffer_size": 1994,
@@ -610,7 +610,7 @@
 			}
 		},
 		{
-			"file": "DataExtractor/CSVParser.py",
+			"file": "/Users/user/Thesis/experiments/DataExtractor/CSVParser.py",
 			"settings":
 			{
 				"buffer_size": 2259,
@@ -619,7 +619,7 @@
 			}
 		},
 		{
-			"file": "DataExtractor/Experiment.py",
+			"file": "/Users/user/Thesis/experiments/DataExtractor/Experiment.py",
 			"settings":
 			{
 				"buffer_size": 4607,
@@ -628,7 +628,7 @@
 			}
 		},
 		{
-			"file": "DataExtractor/ScatterGraph.py",
+			"file": "/Users/user/Thesis/experiments/DataExtractor/ScatterGraph.py",
 			"settings":
 			{
 				"buffer_size": 1163,
@@ -637,7 +637,7 @@
 			}
 		},
 		{
-			"file": "DataExtractor/SimpleDataPlot.py",
+			"file": "/Users/user/Thesis/experiments/DataExtractor/SimpleDataPlot.py",
 			"settings":
 			{
 				"buffer_size": 353,
@@ -646,7 +646,7 @@
 			}
 		},
 		{
-			"file": "DataExtractor/MeanPlot.py",
+			"file": "/Users/user/Thesis/experiments/DataExtractor/MeanPlot.py",
 			"settings":
 			{
 				"buffer_size": 380,
@@ -655,7 +655,7 @@
 			}
 		},
 		{
-			"file": "DataExtractor/MovingWindowMean.py",
+			"file": "/Users/user/Thesis/experiments/DataExtractor/MovingWindowMean.py",
 			"settings":
 			{
 				"buffer_size": 608,
@@ -664,7 +664,7 @@
 			}
 		},
 		{
-			"file": "DataExtractor/MovingWindowMeanFFT.py",
+			"file": "/Users/user/Thesis/experiments/DataExtractor/MovingWindowMeanFFT.py",
 			"settings":
 			{
 				"buffer_size": 1429,
@@ -673,7 +673,7 @@
 			}
 		},
 		{
-			"file": "DataExtractor/ChainedExperiment.py",
+			"file": "/Users/user/Thesis/experiments/DataExtractor/ChainedExperiment.py",
 			"settings":
 			{
 				"buffer_size": 463,
@@ -682,7 +682,7 @@
 			}
 		},
 		{
-			"file": "DataExtractor/MovingWindowFFT.py",
+			"file": "/Users/user/Thesis/experiments/DataExtractor/MovingWindowFFT.py",
 			"settings":
 			{
 				"buffer_size": 854,
@@ -691,7 +691,7 @@
 			}
 		},
 		{
-			"file": "DataExtractor/FFT.py",
+			"file": "/Users/user/Thesis/experiments/DataExtractor/FFT.py",
 			"settings":
 			{
 				"buffer_size": 734,
@@ -700,7 +700,7 @@
 			}
 		},
 		{
-			"file": "DataExtractor/MovingWindowFFTFreq.py",
+			"file": "/Users/user/Thesis/experiments/DataExtractor/MovingWindowFFTFreq.py",
 			"settings":
 			{
 				"buffer_size": 1060,
@@ -709,7 +709,7 @@
 			}
 		},
 		{
-			"file": "DataExtractor/FFTTest.py",
+			"file": "/Users/user/Thesis/experiments/DataExtractor/FFTTest.py",
 			"settings":
 			{
 				"buffer_size": 534,
@@ -718,7 +718,7 @@
 			}
 		},
 		{
-			"file": "DataExtractor/SlopeComparison.py",
+			"file": "/Users/user/Thesis/experiments/DataExtractor/SlopeComparison.py",
 			"settings":
 			{
 				"buffer_size": 590,
@@ -958,7 +958,7 @@
 			[
 				{
 					"buffer": 0,
-					"file": "DataExtractor/DataExtractor.py",
+					"file": "/Users/user/Thesis/experiments/DataExtractor/DataExtractor.py",
 					"semi_transient": false,
 					"settings":
 					{
@@ -987,7 +987,7 @@
 				},
 				{
 					"buffer": 1,
-					"file": "experimentList.txt",
+					"file": "/Users/user/Thesis/experiments/experimentList.txt",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1016,7 +1016,7 @@
 				},
 				{
 					"buffer": 2,
-					"file": "DataExtractor/ExperimentPipe.py",
+					"file": "/Users/user/Thesis/experiments/DataExtractor/ExperimentPipe.py",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1046,7 +1046,7 @@
 				},
 				{
 					"buffer": 3,
-					"file": "Evaluation/Evaluation.py",
+					"file": "Evaluation.py",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1075,7 +1075,7 @@
 				},
 				{
 					"buffer": 4,
-					"file": "Evaluation/FeatureDataProvider/FeatureDataProvider.py",
+					"file": "FeatureDataProvider/FeatureDataProvider.py",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1112,7 +1112,7 @@
 				},
 				{
 					"buffer": 5,
-					"file": "Evaluation/Formatter/__init__.py",
+					"file": "Formatter/__init__.py",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1141,7 +1141,7 @@
 				},
 				{
 					"buffer": 6,
-					"file": "Evaluation/Formatter/Formatter.py",
+					"file": "Formatter/Formatter.py",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1171,7 +1171,7 @@
 				},
 				{
 					"buffer": 7,
-					"file": "Evaluation/Formatter/Outputs/1.json",
+					"file": "Formatter/Outputs/1.json",
 					"semi_transient": true,
 					"settings":
 					{
@@ -1199,7 +1199,7 @@
 				},
 				{
 					"buffer": 8,
-					"file": "Evaluation/UsefulRegionChecker/UsefulRegionChecker.py",
+					"file": "UsefulRegionChecker/UsefulRegionChecker.py",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1229,7 +1229,7 @@
 				},
 				{
 					"buffer": 9,
-					"file": "Evaluation/DataCollector/DataCollector.py",
+					"file": "DataCollector/DataCollector.py",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1259,7 +1259,7 @@
 				},
 				{
 					"buffer": 10,
-					"file": "DataExtractor/CSVParser.py",
+					"file": "/Users/user/Thesis/experiments/DataExtractor/CSVParser.py",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1289,7 +1289,7 @@
 				},
 				{
 					"buffer": 11,
-					"file": "DataExtractor/Experiment.py",
+					"file": "/Users/user/Thesis/experiments/DataExtractor/Experiment.py",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1319,7 +1319,7 @@
 				},
 				{
 					"buffer": 12,
-					"file": "DataExtractor/ScatterGraph.py",
+					"file": "/Users/user/Thesis/experiments/DataExtractor/ScatterGraph.py",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1349,7 +1349,7 @@
 				},
 				{
 					"buffer": 13,
-					"file": "DataExtractor/SimpleDataPlot.py",
+					"file": "/Users/user/Thesis/experiments/DataExtractor/SimpleDataPlot.py",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1378,7 +1378,7 @@
 				},
 				{
 					"buffer": 14,
-					"file": "DataExtractor/MeanPlot.py",
+					"file": "/Users/user/Thesis/experiments/DataExtractor/MeanPlot.py",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1408,7 +1408,7 @@
 				},
 				{
 					"buffer": 15,
-					"file": "DataExtractor/MovingWindowMean.py",
+					"file": "/Users/user/Thesis/experiments/DataExtractor/MovingWindowMean.py",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1438,7 +1438,7 @@
 				},
 				{
 					"buffer": 16,
-					"file": "DataExtractor/MovingWindowMeanFFT.py",
+					"file": "/Users/user/Thesis/experiments/DataExtractor/MovingWindowMeanFFT.py",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1468,7 +1468,7 @@
 				},
 				{
 					"buffer": 17,
-					"file": "DataExtractor/ChainedExperiment.py",
+					"file": "/Users/user/Thesis/experiments/DataExtractor/ChainedExperiment.py",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1498,7 +1498,7 @@
 				},
 				{
 					"buffer": 18,
-					"file": "DataExtractor/MovingWindowFFT.py",
+					"file": "/Users/user/Thesis/experiments/DataExtractor/MovingWindowFFT.py",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1528,7 +1528,7 @@
 				},
 				{
 					"buffer": 19,
-					"file": "DataExtractor/FFT.py",
+					"file": "/Users/user/Thesis/experiments/DataExtractor/FFT.py",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1558,7 +1558,7 @@
 				},
 				{
 					"buffer": 20,
-					"file": "DataExtractor/MovingWindowFFTFreq.py",
+					"file": "/Users/user/Thesis/experiments/DataExtractor/MovingWindowFFTFreq.py",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1588,7 +1588,7 @@
 				},
 				{
 					"buffer": 21,
-					"file": "DataExtractor/FFTTest.py",
+					"file": "/Users/user/Thesis/experiments/DataExtractor/FFTTest.py",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1617,7 +1617,7 @@
 				},
 				{
 					"buffer": 22,
-					"file": "DataExtractor/SlopeComparison.py",
+					"file": "/Users/user/Thesis/experiments/DataExtractor/SlopeComparison.py",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1687,7 +1687,7 @@
 		"height": 0.0
 	},
 	"pinned_build_system": "",
-	"project": "untitled.sublime-project",
+	"project": "Thesis.sublime-project",
 	"replace":
 	{
 		"height": 48.0

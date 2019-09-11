@@ -9,7 +9,7 @@ class Formatter(object):
 		self.inputFolder = "DataCollector/Outputs/"
 		self.outputFolder = "Formatter/Outputs/"
 		self.data = []
-		self.interestingZone = 180
+		self.interestingZone = 300
 		self.baselineEffectZone = 60
 		
 

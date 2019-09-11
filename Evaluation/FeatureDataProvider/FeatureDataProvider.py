@@ -20,10 +20,17 @@ class FeatureDataProvider(object):
 		self.outputFolderRoot = "FeatureDataProvider/Outputs/"
 		self.data = []
 		self.sampling_rate = 1000
-		self.createNewFolder()
 		self.loadInputData()
+		# self.GenerateFeatureDataFiles(true)
+		
+
+	def GenerateFeatureDataFiles(self, showPlot):
+		self.showPlot = showPlot
+		self.createNewFolder()
+		
 		self.process()
-		plt.show()
+		if self.showPlot:
+			plt.show()
 
 	def createNewFolder(self):
 		folders = [int(f.split('.')[0]) for f in listdir(self.outputFolderRoot) if not isfile(join(self.inputFolder, f))]
@@ -57,9 +64,10 @@ class FeatureDataProvider(object):
 		with open(join((self.outputFolderRoot + self.outputFolderName),fileName + ".json"), "w") as file:
 			json.dump(saveData, file)
 		# print(fileName, ", ", saveData)
-		plt.figure(fileName)
-		for dt in saveData["features"]:
-			plt.plot(dt)
+		if self.showPlot:
+			plt.figure(fileName)
+			for dt in saveData["features"]:
+				plt.plot(dt)
 
 	def getMeanSdVariance(self, dataSet):
 
@@ -68,6 +76,30 @@ class FeatureDataProvider(object):
 		variance = math.sqrt((sum([(x * x) for x in dataSet]) - ((sum([x for x in dataSet]) * sum([x for x in dataSet]))/len(dataSet))) / (len(dataSet) - 1))
 
 		return [mean,sd,variance]
+
+	def smooth(self, dataSet, window):
+		result = []
+		for i in range(len(dataSet)):
+			if i < window:
+				mean = sum(dataSet[:i])/(i+1)
+			else:
+				mean = sum(dataSet[i-window:i])/window
+			result.append(mean)
+		return result
+
+	def slope(self, dataList, distance):
+		result = []
+		for data in dataList:
+			start = 0
+			slopeValues = []
+			while start < len(data) - distance:
+				slope = (data[start + distance] - data[start])/distance
+
+				slopeValues.append(slope)
+				start = start + 1
+				pass
+			result.append(slopeValues[:150])
+		return result
 
 	def process(self):
 		print("Starting process")

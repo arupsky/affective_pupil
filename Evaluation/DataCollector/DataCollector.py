@@ -6,15 +6,19 @@ import json
 
 class DataCollector(object):
 	"""docstring for DataCollector"""
-	def __init__(self):
+	def __init__(self, folderName):
 		super(DataCollector, self).__init__()
-		folderName = "../../data/"
-
-		dataFiles = [f for f in listdir(folderName) if (isfile(join(folderName, f)) and ".csv" in f)]
+		self.folderName = folderName
+		
+	def loadFolder(self):
+		dataFiles = [f for f in listdir(self.folderName) if (isfile(join(self.folderName, f)) and ".csv" in f)]
 		self.data = []
 		for file in dataFiles:
 			self.data.extend(self.extractData(file))
+		return self.data
 
+
+	def saveOutputFile(self):
 		outputFolder = "DataCollector/Outputs/"
 		outputFiles = [f for f in listdir(outputFolder) if (isfile(join(outputFolder, f)) and ".json" in f)]
 		outputFileName = join(outputFolder, str(len(outputFiles)) + ".json")
@@ -25,7 +29,7 @@ class DataCollector(object):
 	def extractData(self, fileName):
 		data_list = []
 
-		with open("../../data/" + fileName) as csvfile:
+		with open(self.folderName + fileName) as csvfile:
 		    readCSV = csv.reader(csvfile, delimiter=',')
 		    skip = True
 		    for row in readCSV:
@@ -35,7 +39,7 @@ class DataCollector(object):
 		        # print(row[15])
 		        if skip or row[16] == "":
 		        	skip = False
-		        	print("skipping")
+		        	# print("skipping")
 		        	continue
 
 		        pupilList = row[14][1:-1].split(', ')

@@ -4,6 +4,114 @@
 		"selected_items":
 		[
 			[
+				"se",
+				"segmentLength"
+			],
+			[
+				"seg",
+				"segment"
+			],
+			[
+				"contro",
+				"controlPoints"
+			],
+			[
+				"contr",
+				"controlPoints"
+			],
+			[
+				"ha",
+				"hand"
+			],
+			[
+				"smo",
+				"smoothed"
+			],
+			[
+				"fig",
+				"figure"
+			],
+			[
+				"sm",
+				"smooth"
+			],
+			[
+				"ind",
+				"indlist"
+			],
+			[
+				"fi",
+				"fig"
+			],
+			[
+				"slo",
+				"slopeDt"
+			],
+			[
+				"in",
+				"indlist"
+			],
+			[
+				"plo",
+				"plot"
+			],
+			[
+				"pl",
+				"plt"
+			],
+			[
+				"nega",
+				"negativeData"
+			],
+			[
+				"sl",
+				"slopeDt"
+			],
+			[
+				"dat",
+				"dataSet"
+			],
+			[
+				"pup",
+				"pupilList"
+			],
+			[
+				"fo",
+				"formattedData"
+			],
+			[
+				"te",
+				"tempPos"
+			],
+			[
+				"tem",
+				"tempNeu"
+			],
+			[
+				"pos",
+				"positiveData"
+			],
+			[
+				"neu",
+				"neutralData"
+			],
+			[
+				"ax",
+				"ax1"
+			],
+			[
+				"neg",
+				"negativeData"
+			],
+			[
+				"form",
+				"formattedData"
+			],
+			[
+				"for",
+				"formattedData"
+			],
+			[
 				"mo",
 				"modelName"
 			],
@@ -48,10 +156,6 @@
 				"window"
 			],
 			[
-				"plo",
-				"plot_confusion_matrix"
-			],
-			[
 				"pre",
 				"prediction"
 			],
@@ -74,14 +178,6 @@
 			[
 				"wi",
 				"window"
-			],
-			[
-				"fo",
-				"formatter"
-			],
-			[
-				"in",
-				"interestingZone"
 			],
 			[
 				"ed",
@@ -148,10 +244,6 @@
 				"debugInfo"
 			],
 			[
-				"for",
-				"formatter"
-			],
-			[
 				"ex",
 				"experimentCount"
 			],
@@ -200,18 +292,6 @@
 				"add"
 			],
 			[
-				"se",
-				"Sequential"
-			],
-			[
-				"sm",
-				"smoothPositive"
-			],
-			[
-				"smo",
-				"smoothNegative"
-			],
-			[
 				"mean",
 				"meanNegative"
 			],
@@ -230,10 +310,6 @@
 			[
 				"feta",
 				"featureProvider"
-			],
-			[
-				"pl",
-				"plot"
 			],
 			[
 				"ne",
@@ -316,10 +392,6 @@
 				"fileName"
 			],
 			[
-				"ind",
-				"index"
-			],
-			[
 				"fe",
 				"featuresTest"
 			],
@@ -346,10 +418,6 @@
 			[
 				"cre",
 				"createNewFolder"
-			],
-			[
-				"dat",
-				"data"
 			],
 			[
 				"pea",
@@ -394,14 +462,6 @@
 			[
 				"raw",
 				"raw_s_2"
-			],
-			[
-				"fi",
-				"firstValue"
-			],
-			[
-				"neg",
-				"neg2"
 			],
 			[
 				"fr",
@@ -454,66 +514,6 @@
 			[
 				"s",
 				"stimuli"
-			],
-			[
-				"o",
-				"outputFileName"
-			],
-			[
-				"res",
-				"resultY"
-			],
-			[
-				"resu",
-				"resultY"
-			],
-			[
-				"end",
-				"endIndex"
-			],
-			[
-				"Mo",
-				"MovingWindowFFT"
-			],
-			[
-				"slo",
-				"SlopeComparison"
-			],
-			[
-				"Mov",
-				"MovingWindowFFTFreq"
-			],
-			[
-				"cs",
-				"csvParser"
-			],
-			[
-				"mov",
-				"movingWindowFFT"
-			],
-			[
-				"max",
-				"maxY"
-			],
-			[
-				"c",
-				"CSVParser"
-			],
-			[
-				"dt",
-				"dty"
-			],
-			[
-				"pos",
-				"positivePlot"
-			],
-			[
-				"neu",
-				"neutralPlot"
-			],
-			[
-				"re",
-				"result"
 			]
 		]
 	},
@@ -534,7 +534,7 @@
 			"file": "/Users/user/Thesis/experiments/DataExtractor/ExperimentPipe.py",
 			"settings":
 			{
-				"buffer_size": 3404,
+				"buffer_size": 3432,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -543,7 +543,7 @@
 			"file": "Evaluation.py",
 			"settings":
 			{
-				"buffer_size": 8268,
+				"buffer_size": 11380,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -552,7 +552,7 @@
 			"file": "Legacy.py",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 325,
 				"line_ending": "Unix"
 			}
 		},
@@ -584,11 +584,13 @@
 			}
 		},
 		{
+			"contents": "import numpy as np\nfrom Helper import Helper\nfrom scipy  import stats\n\nclass TrainDataProvider:\n\t\"\"\"docstring for TrainDataProvider\"\"\"\n\tdef __init__(self, formattedData):\n\t\tself.data = formattedData\n\t\tself.classCount = 3\n\t\t# print(formattedData)\n\n\tdef getTrainableData(self, start, window):\n\t\tfeatures = np.random.random((len(self.data),window,1))\n\t\tlabels = np.random.random((len(self.data),self.classCount))\n\t\t# for dt in self.data:\n\t\t# \tpupilData = np.array(dt[\"pupilList\"][start:start+window])\n\t\t# \tpupilData = pupilData - dt[\"baselineMean\"]\n\t\t\t\n\t\t# \tpupilData = pupilData.reshape(pupilData.shape[0],1)\n\t\t# \t# print(pupilData)\n\t\t# \tfeatures.append(pupilData)\n\t\t# \tlabels.append(Helper.getLabel(dt[\"type\"], 3))\n\n\t\tfor i in range(len(self.data)):\n\t\t\t# print(len(self.data[i][\"pupilList\"]))\n\t\t\tfor j in range(window):\n\t\t\t\t# print(start + j)\n\t\t\t\t# features[i][j][0] = self.data[i][\"pupilList\"][start + j] - self.data[i][\"baselineMean\"]\n\t\t\t\tfeatures[i][j][0] = self.data[i][\"pupilListSmoothed\"][start + j]\n\t\t\tlabels[i] = Helper.getLabel(self.data[i][\"type\"], 3)\n\t\t# print(np.array(features).shape)\n\t\t# return np.array(features), np.array(labels)\n\t\t# features = np.reshape(features, (features.shape[0],1,features.shape[1]))\n\t\t# labels = np.reshape(labels,(labels.shape[0],1,labels.shape[1]))\n\t\t# return np.reshape(features, (features.shape[0],1,features.shape[1])), np.reshape(labels,(labels.shape[0],1,labels.shape[1]))\n\t\treturn features, labels\n\n\tdef getTrainableDataFCNN(self, start, window):\n\n\t\tfeatures = np.random.random((len(self.data),9))\n\t\tlabels = np.random.random((len(self.data),self.classCount))\n\n\t\tfor i in range(len(self.data)):\n\t\t\t\n\t\t\t# dt = [d - self.data[i][\"baselineMean\"] for d in self.data[i][\"pupilList\"][start:start+window]]\n\t\t\tdt = [d for d in self.data[i][\"pupilListSmoothed\"][start:start+window]]\n\t\t\t# print(stats.mode(dt)[0][0])\n\t\t\tfeatures[i][0] = np.mean(dt)\n\t\t\tfeatures[i][1] = np.median(dt)\n\t\t\tfeatures[i][2] = np.std(dt)\n\t\t\tfeatures[i][3] = stats.mode(dt)[0][0]\n\t\t\tfeatures[i][4] = stats.kurtosis(dt)\n\t\t\tfeatures[i][5] = stats.skew(dt)\n\t\t\tfeatures[i][6] = min(dt)\n\t\t\tfeatures[i][7] = max(dt)\n\t\t\tfeatures[i][8] = max(dt) - min(dt)\n\n\t\t\tlabels[i] = Helper.getLabel(self.data[i][\"type\"], 3)\n\n\t\treturn features, labels\n\n\n\t\t",
 			"file": "TrainDataProvider/TrainDataProvider.py",
+			"file_size": 2282,
+			"file_write_time": 132131239686351218,
 			"settings":
 			{
-				"buffer_size": 2109,
-				"encoding": "UTF-8",
+				"buffer_size": 2248,
 				"line_ending": "Unix"
 			}
 		},
@@ -844,6 +846,8 @@
 	[
 		"/Users/user/Thesis/experiments",
 		"/Users/user/Thesis/experiments/Evaluation",
+		"/Users/user/Thesis/experiments/Evaluation/FeatureDataProvider",
+		"/Users/user/Thesis/experiments/Evaluation/Formatter",
 		"/Users/user/Thesis/experiments/Evaluation/ModelProvider"
 	],
 	"file_history":
@@ -1013,7 +1017,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -1051,67 +1055,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3404,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2711,
-								2711
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Evaluation.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8268,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3898,
-								3944
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1496.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Legacy.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
+						"buffer_size": 3432,
 						"regions":
 						{
 						},
@@ -1125,13 +1069,73 @@
 						"settings":
 						{
 							"open_with_edit": true,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Evaluation.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11380,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6411,
+								6411
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3305.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Legacy.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 325,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								200,
+								200
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
 							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -1158,10 +1162,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 130.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -1183,13 +1187,14 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -1205,8 +1210,8 @@
 						"selection":
 						[
 							[
-								3229,
-								3229
+								429,
+								429
 							]
 						],
 						"settings":
@@ -1215,10 +1220,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 757.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1227,15 +1232,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2109,
+						"buffer_size": 2248,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1480,
-								1480
+								290,
+								290
 							]
 						],
 						"settings":
@@ -1244,10 +1249,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 236.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1276,7 +1281,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
@@ -1292,8 +1297,8 @@
 						"selection":
 						[
 							[
-								5654,
-								5654
+								2440,
+								2760
 							]
 						],
 						"settings":
@@ -1302,11 +1307,11 @@
 							"syntax": "Packages/Python/Python.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 1.0,
-						"translation.y": 2574.0,
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1351,8 +1356,8 @@
 						"selection":
 						[
 							[
-								286,
-								286
+								1198,
+								1198
 							]
 						],
 						"settings":
@@ -1362,10 +1367,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 143.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1392,10 +1397,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 1.0,
-						"translation.y": 143.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -1411,8 +1416,8 @@
 						"selection":
 						[
 							[
-								2241,
-								2241
+								3624,
+								3624
 							]
 						],
 						"settings":
@@ -1425,7 +1430,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1471,8 +1476,8 @@
 						"selection":
 						[
 							[
-								1245,
-								1245
+								272,
+								272
 							]
 						],
 						"settings":
@@ -1485,7 +1490,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{

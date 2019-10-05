@@ -4,8 +4,116 @@
 		"selected_items":
 		[
 			[
+				"repl",
+				"replaceBySpline"
+			],
+			[
+				"pu",
+				"pupilList"
+			],
+			[
+				"base",
+				"baselineList"
+			],
+			[
+				"ex",
+				"experimentData"
+			],
+			[
+				"val",
+				"validBaseline"
+			],
+			[
+				"bla",
+				"blackList"
+			],
+			[
+				"in",
+				"invalid"
+			],
+			[
+				"lef",
+				"left"
+			],
+			[
+				"righ",
+				"rightValid"
+			],
+			[
+				"ri",
+				"right"
+			],
+			[
+				"do",
+				"doPrint"
+			],
+			[
+				"smo",
+				"smooth"
+			],
+			[
+				"bl",
+				"blankReplaced"
+			],
+			[
+				"data",
+				"data"
+			],
+			[
+				"new",
+				"newVal"
+			],
+			[
+				"to",
+				"tolist"
+			],
+			[
+				"pup",
+				"pupilList"
+			],
+			[
+				"ba",
+				"baselineTime"
+			],
+			[
 				"bas",
-				"baselineEffectZone"
+				"baselineList"
+			],
+			[
+				"is",
+				"isBaseline"
+			],
+			[
+				"s",
+				"split"
+			],
+			[
+				"ts",
+				"tsvParser"
+			],
+			[
+				"fo",
+				"folderName"
+			],
+			[
+				"fil",
+				"file"
+			],
+			[
+				"fi",
+				"fileNames"
+			],
+			[
+				"newf",
+				"newFixationCross"
+			],
+			[
+				"st",
+				"stimuliFile"
+			],
+			[
+				"blo",
+				"block1Images"
 			],
 			[
 				"pro",
@@ -26,14 +134,6 @@
 			[
 				"int",
 				"interestZoneWidth"
-			],
-			[
-				"in",
-				"interestZoneWidth"
-			],
-			[
-				"data",
-				"dataList"
 			],
 			[
 				"load",
@@ -62,10 +162,6 @@
 			[
 				"for",
 				"formatter"
-			],
-			[
-				"s",
-				"stimuli"
 			],
 			[
 				"o",
@@ -120,10 +216,6 @@
 				"csvParser"
 			],
 			[
-				"ex",
-				"experiment"
-			],
-			[
 				"mo",
 				"MovingWindowMeanFFT"
 			],
@@ -176,20 +268,12 @@
 				"getNegativeData1"
 			],
 			[
-				"pup",
-				"pupilList"
-			],
-			[
 				"plot",
 				"plotFirst100Points"
 			],
 			[
 				"resource",
 				"resourceName"
-			],
-			[
-				"fi",
-				"filteredModules"
 			],
 			[
 				"mod",
@@ -236,16 +320,8 @@
 				"ResourceButtons"
 			],
 			[
-				"fo",
-				"font-size\tproperty"
-			],
-			[
 				"r",
 				"rgba()\tbackground-color"
-			],
-			[
-				"ba",
-				"background-color\tproperty"
 			],
 			[
 				"fon",
@@ -438,112 +514,16 @@
 			[
 				"par",
 				"parking_data"
-			],
-			[
-				"u",
-				"url"
-			],
-			[
-				"ti",
-				"ticks_gone"
-			],
-			[
-				"tic",
-				"ticks_gone"
-			],
-			[
-				"tim",
-				"timescale"
-			],
-			[
-				"flex",
-				"flex-column"
-			],
-			[
-				"d",
-				"d-flex"
-			],
-			[
-				"fl",
-				"flex-grow-1"
-			],
-			[
-				"va",
-				"val"
-			],
-			[
-				"loca",
-				"locationId"
-			],
-			[
-				"form",
-				"form-group"
-			],
-			[
-				"op",
-				"option\tTag"
-			],
-			[
-				"drw",
-				"drawRoute"
-			],
-			[
-				"th",
-				"thead\tTag"
-			],
-			[
-				"fre",
-				"free_percentages"
-			],
-			[
-				"col",
-				"col-12"
-			],
-			[
-				"sel",
-				"selected_route"
-			],
-			[
-				"pre",
-				"previous_location"
-			],
-			[
-				"bes",
-				"best"
-			],
-			[
-				"fun",
-				"function"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "DataExtractor/DataExtractor.py",
+			"file": "/Users/user/Thesis/tsvparser.py",
 			"settings":
 			{
-				"buffer_size": 2032,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "- distribution\n\t- weibol distribution\n\t- ",
-			"file": "experimentList.txt",
-			"file_size": 0,
-			"file_write_time": 132087488584583864,
-			"settings":
-			{
-				"buffer_size": 41,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "DataExtractor/ExperimentPipe.py",
-			"settings":
-			{
-				"buffer_size": 3404,
+				"buffer_size": 9686,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -552,25 +532,16 @@
 			"file": "Evaluation/Evaluation.py",
 			"settings":
 			{
-				"buffer_size": 296,
+				"buffer_size": 11503,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Evaluation/FeatureDataProvider/FeatureDataProvider.py",
+			"file": "Evaluation/TrainDataProvider/TrainDataProvider.py",
 			"settings":
 			{
-				"buffer_size": 167,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Evaluation/Formatter/__init__.py",
-			"settings":
-			{
-				"buffer_size": 0,
+				"buffer_size": 2282,
 				"line_ending": "Unix"
 			}
 		},
@@ -578,25 +549,7 @@
 			"file": "Evaluation/Formatter/Formatter.py",
 			"settings":
 			{
-				"buffer_size": 1646,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Evaluation/Formatter/Outputs/1.json",
-			"settings":
-			{
-				"buffer_size": 469452,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Evaluation/UsefulRegionChecker/UsefulRegionChecker.py",
-			"settings":
-			{
-				"buffer_size": 1682,
-				"encoding": "UTF-8",
+				"buffer_size": 1649,
 				"line_ending": "Unix"
 			}
 		},
@@ -604,125 +557,7 @@
 			"file": "Evaluation/DataCollector/DataCollector.py",
 			"settings":
 			{
-				"buffer_size": 1994,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "DataExtractor/CSVParser.py",
-			"settings":
-			{
-				"buffer_size": 2259,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "DataExtractor/Experiment.py",
-			"settings":
-			{
-				"buffer_size": 4607,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "DataExtractor/ScatterGraph.py",
-			"settings":
-			{
-				"buffer_size": 1163,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "DataExtractor/SimpleDataPlot.py",
-			"settings":
-			{
-				"buffer_size": 353,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "DataExtractor/MeanPlot.py",
-			"settings":
-			{
-				"buffer_size": 380,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "DataExtractor/MovingWindowMean.py",
-			"settings":
-			{
-				"buffer_size": 608,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "DataExtractor/MovingWindowMeanFFT.py",
-			"settings":
-			{
-				"buffer_size": 1429,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "DataExtractor/ChainedExperiment.py",
-			"settings":
-			{
-				"buffer_size": 463,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "DataExtractor/MovingWindowFFT.py",
-			"settings":
-			{
-				"buffer_size": 854,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "DataExtractor/FFT.py",
-			"settings":
-			{
-				"buffer_size": 734,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "DataExtractor/MovingWindowFFTFreq.py",
-			"settings":
-			{
-				"buffer_size": 1060,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "DataExtractor/FFTTest.py",
-			"settings":
-			{
-				"buffer_size": 534,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "DataExtractor/SlopeComparison.py",
-			"settings":
-			{
-				"buffer_size": 590,
-				"encoding": "UTF-8",
+				"buffer_size": 2094,
 				"line_ending": "Unix"
 			}
 		}
@@ -781,16 +616,38 @@
 	"expanded_folders":
 	[
 		"/Users/user/Thesis/experiments",
-		"/Users/user/Thesis/experiments/Evaluation",
-		"/Users/user/Thesis/experiments/Evaluation/DataCollector",
-		"/Users/user/Thesis/experiments/Evaluation/Formatter",
-		"/Users/user/Thesis/experiments/Evaluation/Formatter/Outputs",
-		"/Users/user/Thesis/experiments/Evaluation/ModelProvider"
+		"/Users/user/Thesis/experiments/DataExtractor",
+		"/Users/user/Thesis/experiments/Evaluation"
 	],
 	"file_history":
 	[
-		"/Users/user/Thesis/experiments/DataExtractor/SlopeComparison.py",
+		"/Users/user/Thesis/experiments/DataExtractor/DataExtractor.py",
+		"/Users/user/Thesis/projects/assets/filesaver.py",
+		"/Users/user/Thesis/Resources/GAPED source/GAPED/GAPED/ProcessImageData.py",
+		"/Users/user/Thesis/projects/Tanveer  Data Collection/untitled_lastrun.py",
+		"/Users/user/Thesis/experiments/DataExtractor/ExperimentPipe.py",
+		"/Users/user/Thesis/experiments/Evaluation/Evaluation.py",
+		"/Users/user/Thesis/experiments/Evaluation/FeatureDataProvider/FeatureDataProvider.py",
+		"/Users/user/Thesis/experiments/Evaluation/Formatter/__init__.py",
+		"/Users/user/Thesis/experiments/Evaluation/DataCollector/DataCollector.py",
+		"/Users/user/Thesis/tobi_data/nabil_all.tsv",
+		"/Users/user/Thesis/experiments/Evaluation/Formatter/Formatter.py",
+		"/Users/user/Thesis/experiments/Evaluation/UsefulRegionChecker/UsefulRegionChecker.py",
+		"/Users/user/Thesis/experiments/DataExtractor/CSVParser.py",
+		"/Users/user/Thesis/experiments/DataExtractor/Experiment.py",
+		"/Users/user/Thesis/experiments/DataExtractor/ScatterGraph.py",
 		"/Users/user/Thesis/experiments/DataExtractor/SimpleDataPlot.py",
+		"/Users/user/Thesis/experiments/DataExtractor/MeanPlot.py",
+		"/Users/user/Thesis/experiments/DataExtractor/MovingWindowMean.py",
+		"/Users/user/Thesis/experiments/DataExtractor/MovingWindowMeanFFT.py",
+		"/Users/user/Thesis/experiments/DataExtractor/ChainedExperiment.py",
+		"/Users/user/Thesis/experiments/DataExtractor/MovingWindowFFT.py",
+		"/Users/user/Thesis/experiments/DataExtractor/FFT.py",
+		"/Users/user/Thesis/experiments/DataExtractor/MovingWindowFFTFreq.py",
+		"/Users/user/Thesis/experiments/DataExtractor/FFTTest.py",
+		"/Users/user/Thesis/experiments/DataExtractor/SlopeComparison.py",
+		"/Users/user/Thesis/projects/Tanveer  Data Collection/assets/_json_files/modify.py",
+		"/Users/user/Thesis/experiments/experimentList.txt",
 		"/Users/user/Desktop/ResourceButtons.vue",
 		"/Users/user/Hiwi/Civil Hiwi/blank-project/.gitignore",
 		"/Users/user/Hiwi/Civil Hiwi/blank-project/.eslintrc.json",
@@ -891,32 +748,7 @@
 		"/Users/user/Workshop/Thesis/fwddata/patrick-saad/experiment-1/ml-models/experiment-1/processed_data/data_values_with_class/1.csv",
 		"/Users/user/Workshop/Thesis/fwddata/patrick-saad/experiment-1/ml-models/experiments/experiment-2/processed_data/data_values_with_class/1.csv",
 		"/Users/user/Desktop/Assignment 1 - Image Analysis/binarization.m",
-		"/Users/user/Desktop/Assignment 1 - Image Analysis/morphological_filtering.m",
-		"/Users/user/Desktop/Group-7/main.m",
-		"/Users/user/Desktop/Group-7/morphological_filtering.m",
-		"/Users/user/Desktop/Group-7/binarization.m",
-		"/Users/user/Desktop/Group-7/contrast_enhancement.m",
-		"/Users/user/Workshop/Thesis/fwddata/patrick-saad/experiment-1/ml-models/experiment-1/processed_data/data_values_with_class/6.csv",
-		"/Users/user/Workshop/Thesis/clean data/out.csv",
-		"/Users/user/Workshop/Thesis/clean data/out.txt",
-		"/Users/user/Workshop/Thesis/fwddata/_testing_2019_Apr_17_1617.csv",
-		"/Users/user/Workshop/Thesis/fwddata/1_testing_2019_Apr_17_1617.csv",
-		"/Users/user/Workshop/OnSpaDi/frontend-onspadi/parking_status.html",
-		"/Users/user/Workshop/OnSpaDi/frontend-onspadi/test.html",
-		"/Users/user/Workshop/OnSpaDi/frontend-onspadi/js/algorithm-test.js",
-		"/Users/user/Workshop/OnSpaDi/frontend-onspadi/js/parking-status.js",
-		"/Users/user/Workshop/OnSpaDi/frontend-onspadi/js/misc.js",
-		"/Users/user/Workshop/OnSpaDi/sensor simulator/Simulator.py",
-		"/Users/user/Workshop/OnSpaDi/frontend-onspadi/js/add-parking.js",
-		"/Users/user/Workshop/OnSpaDi/frontend-onspadi/add_parking.html",
-		"/Users/user/Workshop/OnSpaDi/frontend-onspadi/js/assign-sensors.js",
-		"/Users/user/Workshop/OnSpaDi/frontend-onspadi/assign_sensors.html",
-		"/Users/user/Workshop/OnSpaDi/frontend/.htaccess",
-		"/Users/user/Workshop/OnSpaDi/frontend/js/add-parking.js",
-		"/Users/user/Workshop/OnSpaDi/frontend/test.html",
-		"/Users/user/Workshop/OnSpaDi/frontend/js/algorithm-test.js",
-		"/Users/user/Workshop/OnSpaDi/frontend/add_parking.html",
-		"/Users/user/Workshop/OnSpaDi/frontend/parking_status.html"
+		"/Users/user/Desktop/Assignment 1 - Image Analysis/morphological_filtering.m"
 	],
 	"find":
 	{
@@ -934,6 +766,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"pupilList",
 			"type",
 			"pupil"
 		],
@@ -953,244 +786,89 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "DataExtractor/DataExtractor.py",
+					"file": "/Users/user/Thesis/tsvparser.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2032,
+						"buffer_size": 9686,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								10
+								6298,
+								6298
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "experimentList.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 41,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								41,
-								41
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 20,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "DataExtractor/ExperimentPipe.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3404,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								63,
-								32
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Evaluation/Evaluation.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 296,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								256,
-								206
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
 							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3870.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "Evaluation/FeatureDataProvider/FeatureDataProvider.py",
+					"buffer": 1,
+					"file": "Evaluation/Evaluation.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 167,
+						"buffer_size": 11503,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								25,
-								25
-							],
-							[
-								72,
-								72
-							],
-							[
-								129,
-								129
+								8763,
+								8763
 							]
 						],
 						"settings":
 						{
-							"open_with_edit": true,
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "Evaluation/Formatter/__init__.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "Evaluation/Formatter/Formatter.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1646,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1496,
-								1496
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
 							"syntax": "Packages/Python/Python.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 4887.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "Evaluation/Formatter/Outputs/1.json",
-					"semi_transient": true,
+					"buffer": 2,
+					"file": "Evaluation/TrainDataProvider/TrainDataProvider.py",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 469452,
+						"buffer_size": 2282,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1008,
+								1025
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 339286.0,
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -1198,42 +876,12 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "Evaluation/UsefulRegionChecker/UsefulRegionChecker.py",
+					"buffer": 3,
+					"file": "Evaluation/Formatter/Formatter.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1682,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1655,
-								1655
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "Evaluation/DataCollector/DataCollector.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1994,
+						"buffer_size": 1649,
 						"regions":
 						{
 						},
@@ -1241,12 +889,11 @@
 						[
 							[
 								1425,
-								1872
+								1443
 							]
 						],
 						"settings":
 						{
-							"open_with_edit": true,
 							"syntax": "Packages/Python/Python.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
@@ -1258,110 +905,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "DataExtractor/CSVParser.py",
+					"buffer": 4,
+					"file": "Evaluation/DataCollector/DataCollector.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2259,
+						"buffer_size": 2094,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								300,
-								366
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "DataExtractor/Experiment.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4607,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								255,
-								255
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "DataExtractor/ScatterGraph.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1163,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								927,
-								927
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "DataExtractor/SimpleDataPlot.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 353,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								290,
-								290
+								272,
+								272
 							]
 						],
 						"settings":
@@ -1373,275 +930,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "DataExtractor/MeanPlot.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 380,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								331,
-								331
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 21,
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "DataExtractor/MovingWindowMean.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 608,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								604,
-								604
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "DataExtractor/MovingWindowMeanFFT.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1429,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								794,
-								794
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 18,
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "DataExtractor/ChainedExperiment.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 463,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								347,
-								347
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 17,
-					"type": "text"
-				},
-				{
-					"buffer": 18,
-					"file": "DataExtractor/MovingWindowFFT.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 854,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								752,
-								752
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 16,
-					"type": "text"
-				},
-				{
-					"buffer": 19,
-					"file": "DataExtractor/FFT.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 734,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								121,
-								143
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
-					"type": "text"
-				},
-				{
-					"buffer": 20,
-					"file": "DataExtractor/MovingWindowFFTFreq.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1060,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								870,
-								917
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 19,
-					"type": "text"
-				},
-				{
-					"buffer": 21,
-					"file": "DataExtractor/FFTTest.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 534,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								417,
-								417
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 22,
-					"file": "DataExtractor/SlopeComparison.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 590,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								431,
-								431
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 22,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -1728,7 +1017,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 215.0,
+	"side_bar_width": 250.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

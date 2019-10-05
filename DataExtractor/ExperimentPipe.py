@@ -72,30 +72,30 @@ csvParser = CSVParser()
 simpleDataPlot = SimpleDataPlot(csvParser)
 simpleDataPlot.plotData()
 
-movingWindowMean = MovingWindowMean(csvParser)
-movingWindowMean.plotData()
+# movingWindowMean = MovingWindowMean(csvParser)
+# movingWindowMean.plotData()
 
-slopeComparison = SlopeComparison(csvParser)
-slopeComparison.plotData()
+# slopeComparison = SlopeComparison(csvParser)
+# slopeComparison.plotData()
 
-movingWindowFFT = MovingWindowFFT(csvParser)
-movingWindowFFT.plotData()
+# movingWindowFFT = MovingWindowFFT(csvParser)
+# movingWindowFFT.plotData()
 
-movingWindowFFTFreq = MovingWindowFFTFreq(csvParser)
-movingWindowFFTFreq.plotData()
+# movingWindowFFTFreq = MovingWindowFFTFreq(csvParser)
+# movingWindowFFTFreq.plotData()
 
-movingWindowMeanFFT = MovingWindowMeanFFT(csvParser)
-movingWindowMeanFFT.plotData()
+# movingWindowMeanFFT = MovingWindowMeanFFT(csvParser)
+# movingWindowMeanFFT.plotData()
 
-meanFFTFreqSlope = ChainedExperiment("Moving window mean -> FFT -> slope",csvParser, [MovingWindowMean(csvParser), MovingWindowFFTFreq(csvParser), SlopeComparison(csvParser)])
-meanFFTFreqSlope.plotData()
+# meanFFTFreqSlope = ChainedExperiment("Moving window mean -> FFT -> slope",csvParser, [MovingWindowMean(csvParser), MovingWindowFFTFreq(csvParser), SlopeComparison(csvParser)])
+# meanFFTFreqSlope.plotData()
 
 
 # temp = ChainedExperiment("FFT -> Mean -> FFT", csvParser, [MovingWindowFFT(csvParser)])
 # temp.plotData()
 
-temp = ScatterGraph(csvParser, 60, 180)
-temp.plotData()
+# temp = ScatterGraph(csvParser, 60, 180)
+# temp.plotData()
 
 
 plt.show()

@@ -7,6 +7,7 @@ class TrainDataProvider:
 	def __init__(self, formattedData):
 		self.data = formattedData
 		self.classCount = 3
+		# print(formattedData)
 
 	def getTrainableData(self, start, window):
 		# labels = []
@@ -26,7 +27,8 @@ class TrainDataProvider:
 			# print(len(self.data[i]["pupilList"]))
 			for j in range(window):
 				# print(start + j)
-				features[i][j][0] = self.data[i]["pupilList"][start + j] - self.data[i]["baselineMean"]
+				# features[i][j][0] = self.data[i]["pupilList"][start + j] - self.data[i]["baselineMean"]
+				features[i][j][0] = self.data[i]["pupilListSmoothed"][start + j]
 			labels[i] = Helper.getLabel(self.data[i]["type"], 3)
 		# print(np.array(features).shape)
 		# return np.array(features), np.array(labels)
@@ -42,7 +44,8 @@ class TrainDataProvider:
 
 		for i in range(len(self.data)):
 			
-			dt = [d - self.data[i]["baselineMean"] for d in self.data[i]["pupilList"][start:start+window]]
+			# dt = [d - self.data[i]["baselineMean"] for d in self.data[i]["pupilList"][start:start+window]]
+			dt = [d for d in self.data[i]["pupilListSmoothed"][start:start+window]]
 			# print(stats.mode(dt)[0][0])
 			features[i][0] = np.mean(dt)
 			features[i][1] = np.median(dt)

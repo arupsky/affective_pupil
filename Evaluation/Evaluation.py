@@ -19,7 +19,13 @@ from sklearn.utils.multiclass import unique_labels
 from os import listdir
 from os import makedirs
 from os.path import isfile, join
+import scipy.interpolate as si
+
+
+
 # style.use('ggplot')
+plt.rcParams["font.family"] = "Times New Roman"
+
 
 def createNewFolder():
 
@@ -79,6 +85,210 @@ def plot_confusion_matrix(confusionMatrix, classes,normalize=False,title=None,cm
 		plt.savefig(fileName, dpi=400)
 	return ax
 
+def plotRawData(formattedData, countPerType):
+	negativeData = [dt for dt in formattedData if dt['type'] <= 1]
+	neutralData = [dt for dt in formattedData if dt['type'] == 2]
+	positiveData = [dt for dt in formattedData if dt['type'] == 3]
+
+	fig1 = plt.figure()
+	ax1 = fig1.add_subplot(111)
+	plt.xlabel("time frame")
+	plt.ylabel("pupil diameter (mm)")
+	
+
+	fig2 = plt.figure()
+	ax2 = fig2.add_subplot(111)
+	plt.xlabel("time frame")
+	plt.ylabel("pupil diameter (mm)")
+
+	for i in range(countPerType):
+
+		if i == 0:
+			ax1.plot(negativeData[i]['pupilList'], 'r', label="Negative")
+			ax1.plot(neutralData[i]['pupilList'], 'b', label="Neutral")
+			ax1.plot(positiveData[i]['pupilList'], 'g', label="Positive")
+		else:
+			ax1.plot(negativeData[i]['pupilList'], 'r')
+			ax1.plot(neutralData[i]['pupilList'], 'b')
+			ax1.plot(positiveData[i]['pupilList'], 'g')
+
+
+		tempNeg = [dt - negativeData[i]['baselineMean'] for dt in negativeData[i]['pupilList']]
+		tempNeu = [dt - neutralData[i]['baselineMean'] for dt in neutralData[i]['pupilList']]
+		tempPos = [dt - positiveData[i]['baselineMean'] for dt in positiveData[i]['pupilList']]
+
+		if i == 0:
+			ax2.plot(tempNeg, 'r', label="Negative")
+			ax2.plot(tempNeu, 'b', label="Neutral")
+			ax2.plot(tempPos, 'g', label="Positive")
+		else:
+			ax2.plot(tempNeg, 'r')
+			ax2.plot(tempNeu, 'b')
+			ax2.plot(tempPos, 'g')
+
+	# fig1.xlabel("time frame")
+	# fig1.ylabel("mean pupil diameter change (mm)")
+	ax1.legend()
+
+	# fig2.xlabel("time frame")
+	# fig2.ylabel("mean pupil diameter change (mm)")
+	ax2.legend()
+
+def smooth(dataSet, window):
+	result = []
+	hand = int((window-1)/2)
+	for i in range(len(dataSet)):
+		if i < hand:
+			mean = sum(dataSet[:i+hand+1])/(i+hand+1) 
+		else:
+			mean = sum(dataSet[i-hand:i+hand+1])/window
+		result.append(mean)
+	return result
+
+def bspline(cv, n=100, degree=3, periodic=False):
+	""" Calculate n samples on a bspline
+
+		cv :      Array ov control vertices
+		n  :      Number of samples to return
+		degree:   Curve degree
+		periodic: True - Curve is closed
+				  False - Curve is open
+	"""
+
+	# If periodic, extend the point array by count+degree+1
+	cv = np.asarray(cv)
+	count = len(cv)
+
+	if periodic:
+		factor, fraction = divmod(count+degree+1, count)
+		cv = np.concatenate((cv,) * factor + (cv[:fraction],))
+		count = len(cv)
+		degree = np.clip(degree,1,degree)
+
+	# If opened, prevent degree from exceeding count-1
+	else:
+		degree = np.clip(degree,1,count-1)
+
+
+	# Calculate knot vector
+	kv = None
+	if periodic:
+		kv = np.arange(0-degree,count+degree+degree-1)
+	else:
+		kv = np.clip(np.arange(count+degree+1)-degree,0,count-degree)
+
+	# Calculate query range
+	u = np.linspace(periodic,(count-degree),n)
+
+
+	# Calculate result
+	return np.array(si.splev(u, (kv,cv.T,degree))).T
+
+def spline(pupilList):
+	smoothed = smooth(pupilList, 5)
+	
+	plt.figure()
+	plt.plot(pupilList, 'y', label='raw')
+	plt.plot(smoothed, label='smoothed')
+	plt.legend()
+	
+	controlPoints = []
+	for i in range(len(pupilList)):
+		controlPoints.append([i,pupilList[i]])
+	cv = np.array(controlPoints)
+	p = bspline(cv,n=len(pupilList) * 2,degree=16,periodic=False)
+	x,y = p.T
+	plt.figure()
+	plt.plot(pupilList, 'y', label='raw')
+	plt.plot(x,y,'k-',label='b-spline degree 16')
+	plt.legend()
+
+	controlPoints = []
+	for i in range(len(smoothed)):
+		controlPoints.append([i,smoothed[i]])
+	cv = np.array(controlPoints)
+	p = bspline(cv,n=len(pupilList),degree=4,periodic=False)
+	x,y = p.T
+	plt.figure()
+	plt.plot(pupilList, 'y', label='raw')
+	plt.plot(y, label='smooth + b-spline degree 4')
+	plt.legend()
+
+	controlPoints = []
+	base = 90
+	segmentLength = int(300/base)
+	segment = 0
+	while segment * segmentLength < len(pupilList):
+		controlPoints.append([segment, pupilList[segment * segmentLength]])
+		segment = segment + 1
+	if (segment - 1) * segmentLength != len(pupilList) - 1:
+		controlPoints.append([segment, pupilList[len(pupilList) - 1]])
+
+	cv = np.array(controlPoints)
+	p = bspline(cv,n=len(pupilList),degree=4,periodic=False)
+	x,y = p.T
+	plt.figure()
+	plt.plot(pupilList, 'y', label='raw')
+	plt.plot(y, label='b-spline degree 4 base %s'%base)
+	plt.legend()
+
+
+def slope(dataList):
+	result = []
+	for i in range(len(dataList)):
+		if i == 0:
+			result.append(0)
+			continue
+
+		result.append(abs(dataList[i] - dataList[i-1]))
+	return result
+
+def anomalyDetection(formattedData):
+	# dt = formattedData[0]['pupilList']
+	# dt = [d - formattedData[0]['baselineMean'] for d in dt]
+	# smoothed = np.array(smooth(dt, 5))
+	# upper = np.maximum(smoothed * 1.025, smoothed + .2)
+
+	# indlist = [70,61,56,48,41,37,31,23,14,13,10,8,1]
+	indlist = [70]
+	# negativeData = [dt for dt in formattedData]
+	counts = []
+	start = 1
+	for data in formattedData:
+		# counts.append(sum([1 for dt in data['pupilList'] if dt <= 1.5]))
+		# counts.append(max(data['pupilList']))
+
+
+		dt = np.array(data['pupilList']) - data['baselineMean']
+		smoothed = smooth(dt, 5)
+		data['pupilListSmoothed'] = smoothed
+		
+		if start == 70:
+			spline(dt)
+
+		
+		if start in indlist:
+			fig = plt.figure()
+			ax1 = fig.add_subplot(111)
+			ax1.plot(dt,'y')
+			ax1.plot(smoothed, 'b')
+			
+		# plt.hist(slopeDt, 20, facecolor='blue', alpha=0.5)
+		
+		start = start + 1
+
+	return formattedData
+
+	# print(counts)
+
+	# dt = formattedData[0]['pupilList']
+	# dt = [d - formattedData[0]['baselineMean'] for d in dt]
+	# slopeDt = slope([dt],1)
+	# fig = plt.figure()
+	# plt.plot(dt,'r')
+	# plt.plot(smoothed,'g')
+	# plt.plot(upper, 'b')
+	# plt.hist(slopeDt, 20, facecolor='blue', alpha=0.5)
 
 
 debugInfo = []
@@ -100,11 +310,19 @@ dzFCNN = []
 
 outputFolderPath = createNewFolder()
 dataCollector = DataCollector("../../data/")
+# tsvParser = TsvParser("../../tobi_data/")
+# tsvData = tsvParser.loadFolder()
 dataJson = dataCollector.loadFolder()
 formatter = Formatter()
 formattedData = formatter.process(dataJson)
+# formattedData.extend(tsvParser.process())
+formattedData = anomalyDetection(formattedData)
 trainDataProvider = TrainDataProvider(formattedData)
 
+
+# plotRawData(formattedData, 30)
+
+"""
 
 for window in windows:
 	for start in starts:
@@ -171,41 +389,7 @@ plt.savefig(outputFolderPath+"start-window-efficiency(fcnn).png",dpi=400)
 
 # ------------------------------------
 
+"""
+
 plt.show()
 
-
-# ---------------- /Tensorflow Model-------------
-
-# window = 180
-
-# for start in range(int((formatter.interestingZone - window)/10)):
-# 	print("------------------------------------------------------")
-# 	print("Start ", (start * 10), ", window ", window)
-# 	trainFeatures, trainLabels = trainDataProvider.getTrainableData(start * 10, window)
-# 	# rnn = RecurrentNeuralNetwork(trainFeatures, trainLabels)
-# 	# lstm = LongShortTermMemory(trainFeatures, trainLabels)
-# 	cnn = ConvolutionalNeuralNetwork(trainFeatures, trainLabels)
-# 	# efficiency = cnn.efficiency
-	
-# 	debug = {}
-# 	debug["start"] = start
-# 	debug["window"] = window
-# 	debug["cnn_efficiency"] = cnn.efficiency
-# 	debug["cnn_error"] = cnn.error
-# 	debugInfo.append(debug)
-
-# 		# debug["rnn"] = rnn.getEfficiency()
-# 		# debug["lstm"] = lstm.getEfficiency()
-# 		# debug["cnn"] = cnn.getEfficiency()
-
-# 		debugInfo.append(debug)
-# 		print("--------------------------------------------------")
-# 		print(debug)
-# 		rnn.printEvaluation()
-# 		lstm.printEvaluation()
-# 		cnn.printEvaluation()
-
-# print("Total experiments : ", len(debugInfo))
-
-# with open("Reports/report"+str(window)+".json", "w") as file:
-# 	json.dump(debugInfo, file)

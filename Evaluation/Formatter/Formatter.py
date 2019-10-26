@@ -46,12 +46,15 @@ class Formatter(object):
 			temp = {}
 			temp["type"] = dt["type"]
 			temp["baselineList"] = dt["baselineList"]
-			temp["baselineMean"] = sum(temp["baselineList"][len(temp["baselineList"])-self.baselineEffectZone:])/self.baselineEffectZone
-			temp["pupilList"] = dt["pupilList"][:self.interestingZone]
-			temp["pupilMean"] = sum(temp["pupilList"])/self.interestingZone
+			temp["baselineMean"] = sum(temp["baselineList"][-self.baselineEffectZone:])/self.baselineEffectZone
+			temp["pupilListSmoothed"] = [x - temp["baselineMean"] for x in dt["pupilListSmoothed"][:self.interestingZone]]
+			temp["pupilMean"] = sum(temp["pupilListSmoothed"])/self.interestingZone
 			processed.append(temp)
 
 
 		return processed
+
+	def processTsvData(self, data):
+		pass
 
 

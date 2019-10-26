@@ -20,12 +20,36 @@ from os import listdir
 from os import makedirs
 from os.path import isfile, join
 import scipy.interpolate as si
+from tsvparser import TsvParser
+import random
+from Helper import Helper
+import math
 
 
 
 # style.use('ggplot')
 plt.rcParams["font.family"] = "Times New Roman"
 
+config = {}
+config["dummy"] = False
+config["participant"] = -1
+config["do_cnn"] = True
+config["do_fcnn"] = True
+config["generate_confusion_matrix"] = True
+config["generate_mean_graph"] = True
+
+config["generate_preprocess_graph"] = True   # Fertig
+config["preprocess_graph_count_per_file"] = 2   # Fertig
+
+config["generate_baseline_normalization_graph"] = True
+config["debug_data_collect"] = False   # Fertig
+
+
+def printBlockStartSeperator():
+	print("\n----------------------------------------------------------------------------")
+
+def printBlockEndSeperator():
+	print("-----------------------------------\n")
 
 def createNewFolder():
 
@@ -34,8 +58,9 @@ def createNewFolder():
 		outputFolderName = "0"
 	else:
 		outputFolderName = str(max(folders) + 1)
-
+	print("Creating folder for output...")
 	makedirs("Reports/" + outputFolderName)
+	print("Folder creation successful. Output folder name : ", ("Reports/" + outputFolderName + "/"))
 	return "Reports/" + outputFolderName + "/"
 
 def plot_confusion_matrix(confusionMatrix, classes,normalize=False,title=None,cmap=plt.cm.Blues,start=0,window=120,fileName="",modelName=""):
@@ -243,6 +268,18 @@ def slope(dataList):
 		result.append(abs(dataList[i] - dataList[i-1]))
 	return result
 
+def getMeanLine(data):
+	count = len(data)
+	length = len(data[0])
+	mean_data = []
+	for i in range(length):
+		temp = []
+		for sample in data:
+			temp.append(sample[i])
+		mean_data.append(sum(temp)/len(temp))
+
+	return mean_data
+
 def anomalyDetection(formattedData):
 	# dt = formattedData[0]['pupilList']
 	# dt = [d - formattedData[0]['baselineMean'] for d in dt]
@@ -291,10 +328,45 @@ def anomalyDetection(formattedData):
 	# plt.hist(slopeDt, 20, facecolor='blue', alpha=0.5)
 
 
+def getDummyDataset():
+
+	data = []
+	for i in range(200):
+		temp = {}
+		temp["baselineList"] = [0 for x in range(300)]
+		temp["pupilListSmoothed"] = [np.sin(math.radians(x)) * random.randint(1,3) for x in range(300)]
+		temp["type"] = 0
+		data.append(temp)
+
+	for i in range(200):
+		temp = {}
+		temp["baselineList"] = [0 for x in range(300)]
+		temp["pupilListSmoothed"] = [np.cos(math.radians(x)) * random.randint(1,3) for x in range(300)]
+		temp["type"] = 1
+		data.append(temp)
+
+	for i in range(200):
+		val = random.randint(1,3)
+		temp = {}
+		temp["baselineList"] = [0 for x in range(300)]
+		temp["pupilListSmoothed"] = [val for x in range(300)]
+		temp["type"] = 2
+		data.append(temp)
+
+	return data
+
+
+
 debugInfo = []
-starts = [0, 12]
-windows = [90, 120, 180, 240, 270]
-# windows = [120]
+starts = [45, 60]
+# windows = [90, 120, 180, 240, 270]
+windows = [60, 90]
+ran_state = int(np.random.random_sample() * 100)
+# ran_state = 91
+# ran_state = 46
+n_epochs = 300
+
+
 
 # variables for 3d plot ##############
 
@@ -307,22 +379,83 @@ dzCNN = []
 dzFCNN = []
 # ------------------------------------
 
+printBlockStartSeperator()
+print("Experiment started")
+print("Configuration")
+print(config)
+printBlockEndSeperator()
 
+printBlockStartSeperator()
 outputFolderPath = createNewFolder()
-dataCollector = DataCollector("../../data/")
-# tsvParser = TsvParser("../../tobi_data/")
-# tsvData = tsvParser.loadFolder()
-dataJson = dataCollector.loadFolder()
+printBlockEndSeperator()
+
+# dataCollector = DataCollector("../../data/")
+# dataJson = dataCollector.loadFolder()
+
+printBlockStartSeperator()
+print("Data loading started\n")
+tsvParser = TsvParser("../tobi_data/", globalConfig = config)
+tsvData = tsvParser.loadData()
+print("Data loading complete")
+printBlockEndSeperator()
+
+printBlockStartSeperator()
+print("Data processing started")
+tsvData = tsvParser.processData(tsvData)
+print("Data processing complete")
+printBlockEndSeperator()
+
+if config["dummy"]:
+	tsvData = getDummyDataset()
+
+# TsvParser.generateSampleFigures(tsvData)
+printBlockStartSeperator()
+print("Random state : ", ran_state)
+print("Total samples", len(tsvData))
+print("Negative ", sum([1 for x in tsvData if x["type"] == 0]))
+print("Neutral ", sum([1 for x in tsvData if x["type"] == 1]))
+print("Positive ", sum([1 for x in tsvData if x["type"] == 2]))
+printBlockEndSeperator()
+
+printBlockStartSeperator()
+print("Baseline normalization started")
 formatter = Formatter()
-formattedData = formatter.process(dataJson)
-# formattedData.extend(tsvParser.process())
-formattedData = anomalyDetection(formattedData)
+# formattedData = formatter.process(dataJson)
+formattedData = formatter.process(tsvData)
+print("Baseline normalization complete")
+printBlockEndSeperator()
+
+if config["generate_mean_graph"]:
+	printBlockStartSeperator()
+	print("Creating Mean Graph")
+	negative_data = [x["pupilListSmoothed"] for x in tsvData if x["type"] == 0]
+	neutral_data = [x["pupilListSmoothed"] for x in tsvData if x["type"] == 1]
+	positive_data = [x["pupilListSmoothed"] for x in tsvData if x["type"] == 2]
+
+	mean_negative = Helper.smooth(getMeanLine(negative_data), 1)
+	mean_neutral = Helper.smooth(getMeanLine(neutral_data), 1)
+	mean_positive = Helper.smooth(getMeanLine(positive_data), 1)
+
+	plt.figure()
+	plt.plot(mean_negative, 'r', label='negative')
+	plt.plot(mean_neutral, 'b', label='neutral')
+	plt.plot(mean_positive, 'g', label='positive')
+	plt.legend()
+	printBlockEndSeperator()
+
+
+# for i in range(20):
+# 	plt.figure()
+# 	plt.plot(formattedData[i]["pupilListSmoothed"])
+# 	plt.plot(tsvData[i]["pupilList"])
+
+# formattedData = anomalyDetection(formattedData)
 trainDataProvider = TrainDataProvider(formattedData)
 
 
 # plotRawData(formattedData, 30)
 
-"""
+
 
 for window in windows:
 	for start in starts:
@@ -333,63 +466,71 @@ for window in windows:
 		print("Start ", (start), ", window ", window)
 		
 		# cnn training
-		trainFeatures, trainLabels = trainDataProvider.getTrainableData(start, window)
-		cnn = ConvolutionalNeuralNetwork(trainFeatures, trainLabels, epochs=50)
+		if config["do_cnn"]:
+			trainFeatures, trainLabels = trainDataProvider.getTrainableData(start, window)
+			cnn = ConvolutionalNeuralNetwork(trainFeatures, trainLabels, epochs=n_epochs, random_state = ran_state)
+			# cnn confusion matrix
+			confusionMatrixFileName = outputFolderPath+"ConfusionMatrix-CNN-"+str(start)+"-"+str(window)+".png"
+			plot_confusion_matrix(cnn.confusionMatrices[0], ["negative", "neutral", "positive"], start=start, window=window, fileName=confusionMatrixFileName, modelName="CNN")
+
 		
 		# fcnn training
-		trainFeaturesFCNN, trainLabelsFCNN = trainDataProvider.getTrainableDataFCNN(start, window)
-		fcnn = FullyConnectedNetwork(trainFeaturesFCNN, trainLabelsFCNN, epochs=50)
-
-		# cnn confusion matrix
-		confusionMatrixFileName = outputFolderPath+"ConfusionMatrix-CNN-"+str(start)+"-"+str(window)+".png"
-		plot_confusion_matrix(cnn.confusionMatrices[0], ["negative", "neutral", "positive"], start=start, window=window, fileName=confusionMatrixFileName, modelName="CNN")
-
-		# fcnn confusion matrix
-		confusionMatrixFileName = outputFolderPath+"ConfusionMatrix-FCNN-"+str(start)+"-"+str(window)+".png"
-		plot_confusion_matrix(fcnn.confusionMatrices[0], ["negative", "neutral", "positive"], start=start, window=window, fileName=confusionMatrixFileName, modelName="FCNN")
+		if config["do_fcnn"]:
+			trainFeaturesFCNN, trainLabelsFCNN = trainDataProvider.getTrainableDataFCNN(start, window)
+			fcnn = FullyConnectedNetwork(trainFeaturesFCNN, trainLabelsFCNN, epochs=n_epochs, random_state = ran_state)
+			# fcnn confusion matrix
+			confusionMatrixFileName = outputFolderPath+"ConfusionMatrix-FCNN-"+str(start)+"-"+str(window)+".png"
+			plot_confusion_matrix(fcnn.confusionMatrices[0], ["negative", "neutral", "positive"], start=start, window=window, fileName=confusionMatrixFileName, modelName="FCNN")
 		
 		# report data
 		debug = {}
+		debug["state"] = ran_state
 		debug["start"] = start
 		debug["window"] = window
-		debug["cnn_efficiency"] = cnn.efficiency
-		debug["cnn_error"] = cnn.error
-		debug["fcnn_efficiency"] = fcnn.efficiency
-		debug["fcnn_error"] = fcnn.error
+		if config["do_cnn"]:
+			debug["cnn_efficiency"] = cnn.efficiency
+			debug["cnn_error"] = cnn.error
+		if config["do_fcnn"]:
+			debug["fcnn_efficiency"] = fcnn.efficiency
+			debug["fcnn_error"] = fcnn.error
 		debugInfo.append(debug)
 
 		# efficiency 3d graph data
 		x3.append(window)
 		y3.append(start)
-		dzCNN.append(cnn.efficiency)
-		dzFCNN.append(fcnn.efficiency)
+		if config["do_cnn"]:
+			dzCNN.append(cnn.efficiency)
+		if config["do_fcnn"]:
+			dzFCNN.append(fcnn.efficiency)
 
 with open(outputFolderPath+"report-"+str(time.time())+".json", "w") as file:
 	json.dump(debugInfo, file)
 
 # CNN efficiency 3d plot ###################
-fig = plt.figure()
-ax1 = fig.add_subplot(111, projection='3d')
-ax1.bar3d(x3, y3, z3, dx, dy, dzCNN)
-ax1.set_xlabel('window size')
-ax1.set_ylabel('start index')
-ax1.set_zlabel('efficiency (%)')
-plt.savefig(outputFolderPath+"start-window-efficiency(cnn).png",dpi=400)
+if config["do_cnn"]:
+	fig = plt.figure()
+	ax1 = fig.add_subplot(111, projection='3d')
+	ax1.bar3d(x3, y3, z3, dx, dy, dzCNN)
+	ax1.set_xlabel('window size')
+	ax1.set_ylabel('start index')
+	ax1.set_zlabel('efficiency (%)')
+	plt.savefig(outputFolderPath+"start-window-efficiency(cnn).png",dpi=400)
 
 # ------------------------------------
 
 # FCNN efficiency 3d plot ###################
-fig = plt.figure()
-ax1 = fig.add_subplot(111, projection='3d')
-ax1.bar3d(x3, y3, z3, dx, dy, dzFCNN)
-ax1.set_xlabel('window size')
-ax1.set_ylabel('start index')
-ax1.set_zlabel('efficiency (%)')
-plt.savefig(outputFolderPath+"start-window-efficiency(fcnn).png",dpi=400)
+if config["do_fcnn"]:
+	fig = plt.figure()
+	ax1 = fig.add_subplot(111, projection='3d')
+	ax1.bar3d(x3, y3, z3, dx, dy, dzFCNN)
+	ax1.set_xlabel('window size')
+	ax1.set_ylabel('start index')
+	ax1.set_zlabel('efficiency (%)')
+	plt.savefig(outputFolderPath+"start-window-efficiency(fcnn).png",dpi=400)
 
 # ------------------------------------
 
-"""
+
 
 plt.show()
 

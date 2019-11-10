@@ -1,3 +1,7 @@
+import numpy as np
+from scipy  import stats
+import scipy.interpolate as si
+
 class Helper:
 	@staticmethod
 	def getLabel(label, classCount):
@@ -22,12 +26,86 @@ class Helper:
 
 
 	@staticmethod
+	def bspline(self, cv, n=100, degree=3, periodic=False):
+		""" Calculate n samples on a bspline
+
+			cv :      Array ov control vertices
+			n  :      Number of samples to return
+			degree:   Curve degree
+			periodic: True - Curve is closed
+					  False - Curve is open
+		"""
+
+		# If periodic, extend the point array by count+degree+1
+		cv = np.asarray(cv)
+		count = len(cv)
+
+		if periodic:
+			factor, fraction = divmod(count+degree+1, count)
+			cv = np.concatenate((cv,) * factor + (cv[:fraction],))
+			count = len(cv)
+			degree = np.clip(degree,1,degree)
+
+		# If opened, prevent degree from exceeding count-1
+		else:
+			degree = np.clip(degree,1,count-1)
+
+
+		# Calculate knot vector
+		kv = None
+		if periodic:
+			kv = np.arange(0-degree,count+degree+degree-1)
+		else:
+			kv = np.clip(np.arange(count+degree+1)-degree,0,count-degree)
+
+		# Calculate query range
+		u = np.linspace(periodic,(count-degree),n)
+
+
+		# Calculate result
+		return np.array(si.splev(u, (kv,cv.T,degree))).T
+
+	@staticmethod
 	def replaceInvalidByMinimumPupilSize(data, minimumPupilSize):
 		for i in range(len(data)):
 			if data[i] < minimumPupilSize:
 				data[i] = minimumPupilSize
 
 		return data
+
+	@staticmethod
+	def getSlidingWindowSkewness(data, window, step):
+		i = 0
+		n = 0
+		result = []
+		while i + window < len(data):
+			skewness = stats.skew(data[i:i+window])
+			result.append(skewness)
+			i = i + step
+		return result
+
+	@staticmethod
+	def getSlidingWindowKurtosis(data, window, step):
+		i = 0
+		n = 0
+		result = []
+		while i + window < len(data):
+			kurt = stats.kurtosis(data[i:i+window])
+			result.append(kurt)
+			i = i + step
+		return result
+
+	@staticmethod
+	def getCentralBaselineMean(data):
+		centralArea = data[60:-60]
+		mean = sum(centralArea)/len(centralArea)
+		return mean
+
+	@staticmethod
+	def getFirstMinimumValueAndIndex(data):
+		minimum = min(data)
+		minIndex = np.where(np.array(data) == minimum)[0][0]
+		return minimum, minIndex
 
 
 	@staticmethod
@@ -42,6 +120,34 @@ class Helper:
 			else:
 				mean = sum(dataSet[i-hand:i+hand+1])/window
 			result.append(mean)
+		return result
+
+	@staticmethod
+	def getWholeSkewness(dataSet, window):
+		result = []
+		hand = int((window-1)/2)
+		for i in range(len(dataSet)):
+			if i < hand:
+				skew = stats.skew(dataSet[:i+hand+1])
+			elif i + hand >= len(dataSet):
+				skew = stats.skew(dataSet[i-hand:])
+			else:
+				skew = stats.skew(dataSet[i-hand:i+hand+1])
+			result.append(skew)
+		return result
+
+	@staticmethod
+	def getWholeKurtosis(dataSet, window):
+		result = []
+		hand = int((window-1)/2)
+		for i in range(len(dataSet)):
+			if i < hand:
+				kurt = stats.kurtosis(dataSet[:i+hand+1])
+			elif i + hand >= len(dataSet):
+				kurt = stats.kurtosis(dataSet[i-hand:])
+			else:
+				kurt = stats.kurtosis(dataSet[i-hand:i+hand+1])
+			result.append(kurt)
 		return result
 
 	@staticmethod

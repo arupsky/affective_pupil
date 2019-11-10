@@ -1,0 +1,1 @@
+{"input_folder": "augmented_5000", "start": 0, "window": 150, "epochs": 20, "batch_size": 256, "model_summary": null, "train_length": 7962, "validation_length": 5229, "test_length": 2583, "accuracy": "0.44676733"}

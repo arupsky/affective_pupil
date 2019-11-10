@@ -1,16 +1,19 @@
 from os import listdir
 from os.path import isfile, join
 import json
+import numpy as np
+from Helper import Helper
 
 class Formatter(object):
 
-	def __init__(self):
+	def __init__(self, globalConfig):
 		super(Formatter, self).__init__()
 		self.inputFolder = "DataCollector/Outputs/"
 		self.outputFolder = "Formatter/Outputs/"
 		self.data = []
 		self.interestingZone = 300
 		self.baselineEffectZone = 60
+		self.globalConfig = globalConfig
 		
 
 	def formatLatest(self):
@@ -46,8 +49,34 @@ class Formatter(object):
 			temp = {}
 			temp["type"] = dt["type"]
 			temp["baselineList"] = dt["baselineList"]
-			temp["baselineMean"] = sum(temp["baselineList"][-self.baselineEffectZone:])/self.baselineEffectZone
-			temp["pupilListSmoothed"] = [x - temp["baselineMean"] for x in dt["pupilListSmoothed"][:self.interestingZone]]
+			if self.globalConfig["minimum_as_baseline"]:
+				minimumDilation = min(dt["pupilListSmoothed"][:60])
+				minimumIndex = np.where(np.array(dt["pupilListSmoothed"][:60]) == minimumDilation)[0][0]
+				temp["baselineMean"] = minimumDilation
+				temp["pupilListSmoothed"] = [x - minimumDilation for x in dt["pupilListSmoothed"][minimumIndex + 1:self.interestingZone + minimumIndex + 1]]
+			elif self.globalConfig["fixation_as_baseline"]:
+				baselineArea = dt["baselineList"][60:-90]
+				temp["baselineMean"] = sum(baselineArea)/len(baselineArea)
+				temp["pupilListSmoothed"] = [x - temp["baselineMean"] for x in dt["pupilListSmoothed"][:self.interestingZone]]
+			elif self.globalConfig["fixation_minimum_interpolate"]:
+				centralBaseline = Helper.getCentralBaselineMean(dt["baselineList"])
+				minimumVal, minimumIndex = Helper.getFirstMinimumValueAndIndex(dt["pupilListSmoothed"])
+				diff = (minimumVal - centralBaseline) / (minimumIndex + 1)
+				newPupilList = [centralBaseline] * 5
+				for i in range(minimumIndex):
+					interpolatedVal = centralBaseline + diff * i
+					newPupilList.append(interpolatedVal)
+				newPupilList.extend(dt["pupilListSmoothed"][minimumIndex:])
+				# newPupilList = Helper.smooth(newPupilList, 3)
+				temp["pupilListSmoothed"] = [x - centralBaseline for x in newPupilList][:self.interestingZone]
+				temp["baselineMean"] = centralBaseline
+
+			else:
+				temp["baselineMean"] = sum(temp["baselineList"][-self.baselineEffectZone:])/self.baselineEffectZone
+				temp["pupilListSmoothed"] = [x - temp["baselineMean"] for x in dt["pupilListSmoothed"][:self.interestingZone]]
+
+			# temp["pupilSkewness"] = Helper.getWholeSkewness(temp["pupilListSmoothed"], 5)
+			# temp["pupilKurtosis"] = Helper.getWholeKurtosis(temp["pupilListSmoothed"], 5)
 			temp["pupilMean"] = sum(temp["pupilListSmoothed"])/self.interestingZone
 			processed.append(temp)
 

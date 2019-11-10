@@ -14,14 +14,23 @@ import random
 
 class FullyConnectedNetwork:
 	
-	def __init__(self, trainFeatures, trainLabels, epochs = 100, random_state = 10):
+	def __init__(self, trainFeatures, trainLabels, validateFeatures, validateLabels, testFeatures, testLabels, epochs = 100, random_state = 10):
 		self.random_state = random_state
+
 		self.trainFeatures = trainFeatures
 		self.trainLabels = trainLabels
+		self.validateFeatures = validateFeatures
+		self.validateLabels = validateLabels
+		self.testFeatures = testFeatures
+		self.testLabels = testLabels
+
 		self.epochs = epochs
 		self.log = ""
 		# print(trainFeatures.shape)
 		self.trainFeatures.reshape(self.trainFeatures.shape[0], self.trainFeatures.shape[1], 1)
+		self.validateFeatures.reshape(self.validateFeatures.shape[0], self.validateFeatures.shape[1], 1)
+		self.testFeatures.reshape(self.testFeatures.shape[0], self.testFeatures.shape[1], 1)
+
 		self.confusionMatrices = []
 		self.yTrue = []
 		self.yPred = []
@@ -106,9 +115,14 @@ class FullyConnectedNetwork:
 		
 	def trainModel(self):
 
-		x_train_temp, x_test, y_train_temp, y_test = self.splitEven(self.trainFeatures, self.trainLabels, test_size=0.33, random_state=self.random_state)
-		x_train, x_validate, y_train, y_validate = self.splitEven(x_train_temp, y_train_temp, test_size=0.33, random_state=self.random_state)
-
+		# x_train_temp, x_test, y_train_temp, y_test = self.splitEven(self.trainFeatures, self.trainLabels, test_size=0.33, random_state=self.random_state)
+		# x_train, x_validate, y_train, y_validate = self.splitEven(x_train_temp, y_train_temp, test_size=0.33, random_state=self.random_state)
+		x_train = self.trainFeatures
+		y_train = self.trainLabels
+		x_validate = self.validateFeatures
+		y_validate = self.validateLabels
+		x_test = self.testFeatures
+		y_test = self.testLabels
 		
 
 		n_timesteps, n_outputs = x_train.shape[1], y_train.shape[1]

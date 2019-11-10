@@ -7,28 +7,45 @@ class TrainDataProvider:
 	def __init__(self, formattedData):
 		self.data = formattedData
 		self.classCount = 3
-		# print(formattedData)
+		self.key = "pupilListSmoothed"
+		# self.key = "pupilKurtosis"
+		# self.key = "pupilSkewness"
+
+	def getTrainableDataSlidingWindow(self, start, window, sliding_window = 10, step = 3):
+
+		labels = []
+		features = []
+		for dt in self.data:
+			ppl = dt[self.key][start:start+window]
+			feature = []
+			i = 0
+			
+			while i + sliding_window < len(ppl):
+				temp = ppl[i:i+sliding_window]
+				feature.append(np.mean(temp))
+				feature.append(stats.kurtosis(temp))
+				feature.append(stats.skew(temp))
+				i = i + step
+			labels.append(Helper.getLabel(dt["type"], 3))
+			features.append(feature)
+
+		features = np.array(features)
+		labels = np.array(labels)
+
+		features = features.reshape((features.shape[0], features.shape[1], 1))
+
+		return features, labels
+
+
+
 
 	def getTrainableData(self, start, window):
-		# labels = []
-		# features = []
 		features = np.random.random((len(self.data),window,1))
 		labels = np.random.random((len(self.data),self.classCount))
-		# for dt in self.data:
-		# 	pupilData = np.array(dt["pupilList"][start:start+window])
-		# 	pupilData = pupilData - dt["baselineMean"]
-			
-		# 	pupilData = pupilData.reshape(pupilData.shape[0],1)
-		# 	# print(pupilData)
-		# 	features.append(pupilData)
-		# 	labels.append(Helper.getLabel(dt["type"], 3))
 
 		for i in range(len(self.data)):
-			# print(len(self.data[i]["pupilList"]))
 			for j in range(window):
-				# print(start + j)
-				# features[i][j][0] = self.data[i]["pupilListSmoothed"][start + j] - self.data[i]["baselineMean"]
-				features[i][j][0] = self.data[i]["pupilListSmoothed"][start + j]
+				features[i][j][0] = self.data[i][self.key][start + j]
 			labels[i] = Helper.getLabel(self.data[i]["type"], 3)
 		# print(np.array(features).shape)
 		# return np.array(features), np.array(labels)
@@ -45,7 +62,7 @@ class TrainDataProvider:
 		for i in range(len(self.data)):
 			
 			# dt = [d - self.data[i]["baselineMean"] for d in self.data[i]["pupilListSmoothed"][start:start+window]]
-			dt = [d for d in self.data[i]["pupilListSmoothed"][start:start+window]]
+			dt = [d for d in self.data[i][self.key][start:start+window]]
 			# print(stats.mode(dt)[0][0])
 			features[i][0] = np.mean(dt)
 			features[i][1] = np.median(dt)

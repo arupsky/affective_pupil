@@ -8,6 +8,8 @@ from ModelProvider.RecurrentNeuralNetwork import RecurrentNeuralNetwork
 from ModelProvider.LongShortTermMemory import LongShortTermMemory
 from ModelProvider.ConvolutionalNeuralNetwork import ConvolutionalNeuralNetwork
 from ModelProvider.FullyConnectedNetwork import FullyConnectedNetwork
+from ModelProvider.ConvolutionalNeuralNetwork2 import ConvolutionalNeuralNetwork2
+from ModelProvider.FullyConnectedNetwork2 import FullyConnectedNetwork2
 import json
 import time
 import numpy as np
@@ -31,18 +33,31 @@ import math
 plt.rcParams["font.family"] = "Times New Roman"
 
 config = {}
+
+config["load_from_file"] = False
+config["data_file_path"] = "../input_data/raw.json"
+
 config["dummy"] = False
 config["participant"] = -1
-config["do_cnn"] = True
-config["do_fcnn"] = True
-config["generate_confusion_matrix"] = True
-config["generate_mean_graph"] = True
 
-config["generate_preprocess_graph"] = True   # Fertig
+config["minimum_as_baseline"] = False
+config["fixation_as_baseline"] = True
+config["fixation_minimum_interpolate"] = False
+
+config["do_cnn"] = False
+config["do_fcnn"] = False
+config["generate_confusion_matrix"] = False
+config["generate_mean_graph"] = True
+config["generate_skewness_graph"] = False
+config["generate_kurtosis_graph"] = False
+
+config["generate_preprocess_graph"] = False   # Fertig
 config["preprocess_graph_count_per_file"] = 2   # Fertig
 
 config["generate_baseline_normalization_graph"] = True
 config["debug_data_collect"] = False   # Fertig
+config["use_pre_split"] = False
+config["use_sliding_window"] = True
 
 
 def printBlockStartSeperator():
@@ -270,7 +285,8 @@ def slope(dataList):
 
 def getMeanLine(data):
 	count = len(data)
-	length = len(data[0])
+	lengths = [len(x) for x in data]
+	length = min(lengths)
 	mean_data = []
 	for i in range(length):
 		temp = []
@@ -355,13 +371,39 @@ def getDummyDataset():
 
 	return data
 
+def printMeanGraph(dataset, title):
+	printBlockStartSeperator()
+	print("Creating Mean Graph")
+	# negative_data = [x["pupilListSmoothed"] for x in tsvData if x["type"] == 0]
+	# neutral_data = [x["pupilListSmoothed"] for x in tsvData if x["type"] == 1]
+	# positive_data = [x["pupilListSmoothed"] for x in tsvData if x["type"] == 2]
 
+	negative_data = [x["pupilListSmoothed"] for x in dataset if x["type"] == 0]
+	neutral_data = [x["pupilListSmoothed"] for x in dataset if x["type"] == 1]
+	positive_data = [x["pupilListSmoothed"] for x in dataset if x["type"] == 2]
+
+
+
+	mean_negative = Helper.smooth(getMeanLine(negative_data), 1)
+	mean_neutral = Helper.smooth(getMeanLine(neutral_data), 1)
+	mean_positive = Helper.smooth(getMeanLine(positive_data), 1)
+
+	fig = plt.figure()
+	ax = fig.add_subplot(111)
+	ax.set(title=title)
+	ax.plot(mean_negative, 'r', label='negative')
+	ax.plot(mean_neutral, 'b', label='neutral')
+	ax.plot(mean_positive, 'g', label='positive')
+	plt.legend()
+	printBlockEndSeperator()
 
 debugInfo = []
-starts = [45, 60]
+# starts = [45, 60]
+starts = [0, 15, 30]
 # windows = [90, 120, 180, 240, 270]
-windows = [60, 90]
-ran_state = int(np.random.random_sample() * 100)
+windows = [90, 120]
+# ran_state = int(np.random.random_sample() * 100)
+ran_state = 13
 # ran_state = 91
 # ran_state = 46
 n_epochs = 300
@@ -402,35 +444,75 @@ printBlockEndSeperator()
 printBlockStartSeperator()
 print("Data processing started")
 tsvData = tsvParser.processData(tsvData)
+negativeRaw = [x for x in tsvData if x["type"] == 0]
+neutralRaw = [x for x in tsvData if x["type"] == 1]
+positiveRaw = [x for x in tsvData if x["type"] == 2]
 print("Data processing complete")
 printBlockEndSeperator()
 
 if config["dummy"]:
 	tsvData = getDummyDataset()
 
+# printBlockStartSeperator()
+# print("Chceking relation between baseline mean and minimum pupil size in first second")
+# fig = plt.figure()
+# ax1 = fig.add_subplot(311)
+# ax2 = fig.add_subplot(312)
+# ax3 = fig.add_subplot(313)
+# negativeLine = []
+# neutralLine = []
+# positiveLine = []
+# for dt in tsvData:
+# 	centralBaseline = Helper.getCentralBaselineMean(dt["baselineList"])
+# 	minimumVal, minimumIndex = Helper.getFirstMinimumValueAndIndex(dt["pupilListSmoothed"])
+# 	if dt["type"] == 0:
+# 		negativeLine.append([centralBaseline, minimumVal])
+# 		ax1.plot(centralBaseline, minimumVal, '.')
+# 	elif dt["type"] == 1:
+# 		neutralLine.append([centralBaseline, minimumVal])
+# 		ax2.plot(centralBaseline, minimumVal, '.')
+# 	else:
+# 		positiveLine.append([centralBaseline, minimumVal])
+# 		ax3.plot(centralBaseline, minimumVal, '.')
+
+
+# printBlockEndSeperator()
+
 # TsvParser.generateSampleFigures(tsvData)
-printBlockStartSeperator()
-print("Random state : ", ran_state)
-print("Total samples", len(tsvData))
-print("Negative ", sum([1 for x in tsvData if x["type"] == 0]))
-print("Neutral ", sum([1 for x in tsvData if x["type"] == 1]))
-print("Positive ", sum([1 for x in tsvData if x["type"] == 2]))
-printBlockEndSeperator()
+
 
 printBlockStartSeperator()
 print("Baseline normalization started")
-formatter = Formatter()
+formatter = Formatter(config)
 # formattedData = formatter.process(dataJson)
 formattedData = formatter.process(tsvData)
 print("Baseline normalization complete")
 printBlockEndSeperator()
 
+# with open(config["data_file_path"], 'w') as outfile:
+# 	json.dump(formattedData, outfile)
+
+
+printBlockStartSeperator()
+print("Random state : ", ran_state)
+print("Total samples", len(tsvData))
+print("Negative ", sum([1 for x in formattedData if x["type"] == 0]))
+print("Neutral ", sum([1 for x in formattedData if x["type"] == 1]))
+print("Positive ", sum([1 for x in formattedData if x["type"] == 2]))
+printBlockEndSeperator()
+
 if config["generate_mean_graph"]:
 	printBlockStartSeperator()
 	print("Creating Mean Graph")
-	negative_data = [x["pupilListSmoothed"] for x in tsvData if x["type"] == 0]
-	neutral_data = [x["pupilListSmoothed"] for x in tsvData if x["type"] == 1]
-	positive_data = [x["pupilListSmoothed"] for x in tsvData if x["type"] == 2]
+	# negative_data = [x["pupilListSmoothed"] for x in tsvData if x["type"] == 0]
+	# neutral_data = [x["pupilListSmoothed"] for x in tsvData if x["type"] == 1]
+	# positive_data = [x["pupilListSmoothed"] for x in tsvData if x["type"] == 2]
+
+	negative_data = [x["pupilListSmoothed"] for x in formattedData if x["type"] == 0]
+	neutral_data = [x["pupilListSmoothed"] for x in formattedData if x["type"] == 1]
+	positive_data = [x["pupilListSmoothed"] for x in formattedData if x["type"] == 2]
+
+
 
 	mean_negative = Helper.smooth(getMeanLine(negative_data), 1)
 	mean_neutral = Helper.smooth(getMeanLine(neutral_data), 1)
@@ -450,7 +532,89 @@ if config["generate_mean_graph"]:
 # 	plt.plot(tsvData[i]["pupilList"])
 
 # formattedData = anomalyDetection(formattedData)
+
+
+printBlockStartSeperator()
+print("Splitting dataset")
+totalCount = len(formattedData)
+avgCountPerClass = int(totalCount/3)
+trainCountPerClass = int(avgCountPerClass * .75 * .67)
+validationCountPerClass = int(avgCountPerClass * .33)
+
+trainSet = []
+validationSet = []
+testSet = []
+
+negativeFormatted = [x for x in formattedData if x["type"] == 0]
+neutralFormatted = [x for x in formattedData if x["type"] == 1]
+positiveFormatted = [x for x in formattedData if x["type"] == 2]
+
+random.seed(ran_state)
+negativeTrain = random.sample(negativeFormatted, trainCountPerClass)
+neutralTrain = random.sample(neutralFormatted, trainCountPerClass)
+positiveTrain = random.sample(positiveFormatted, trainCountPerClass)
+
+negativeRemaining = [x for x in negativeFormatted if x not in negativeTrain]
+neutralRemaining = [x for x in neutralFormatted if x not in neutralTrain]
+positiveRemaining = [x for x in positiveFormatted if x not in positiveTrain]
+
+negativeValidation = random.sample(negativeRemaining, validationCountPerClass)
+neutralValidation = random.sample(neutralRemaining, validationCountPerClass)
+positiveValidation = random.sample(positiveRemaining, validationCountPerClass)
+
+testSet.extend([x for x in negativeRemaining if x not in negativeValidation])
+testSet.extend([x for x in neutralRemaining if x not in neutralValidation])
+testSet.extend([x for x in positiveRemaining if x not in positiveValidation])
+
+validationSet.extend(negativeValidation)
+validationSet.extend(neutralValidation)
+validationSet.extend(positiveValidation)
+
+trainSet.extend(negativeTrain)
+trainSet.extend(neutralTrain)
+trainSet.extend(positiveTrain)
+
+print("Splitting complete")
+print("Train : ", len(trainSet))
+print("Validation : ", len(validationSet))
+print("Test : ", len(testSet))
+printBlockEndSeperator()
+print("Train set info")
+print("negative count ",sum([1 for x in trainSet if x["type"] == 0]))
+print("negative count ",sum([1 for x in trainSet if x["type"] == 1]))
+print("negative count ",sum([1 for x in trainSet if x["type"] == 2]))
+printMeanGraph(trainSet, "Mean graph : Train set")
+printBlockEndSeperator()
+print("Validation set info")
+print("negative count ",sum([1 for x in validationSet if x["type"] == 0]))
+print("negative count ",sum([1 for x in validationSet if x["type"] == 1]))
+print("negative count ",sum([1 for x in validationSet if x["type"] == 2]))
+printMeanGraph(validationSet, "Mean graph : Validation set")
+printBlockEndSeperator()
+print("Test set info")
+print("negative count ",sum([1 for x in testSet if x["type"] == 0]))
+print("negative count ",sum([1 for x in testSet if x["type"] == 1]))
+print("negative count ",sum([1 for x in testSet if x["type"] == 2]))
+printMeanGraph(testSet, "Mean graph : Test set")
+printBlockEndSeperator()
+
+fig = plt.figure()
+ax1 = fig.add_subplot(311)
+ax2 = fig.add_subplot(312)
+ax3 = fig.add_subplot(313)
+dt = negativeTrain[0]["pupilListSmoothed"]
+kurt = Helper.getSlidingWindowKurtosis(dt, 5, 1)
+skew = Helper.getSlidingWindowSkewness(dt, 5, 1)
+ax1.plot(dt, label='raw')
+ax2.plot(kurt, label='kurtosis')
+ax3.plot(skew, label='skewness')
+
+
 trainDataProvider = TrainDataProvider(formattedData)
+
+dataProviderTrain = TrainDataProvider(trainSet)
+dataProviderValidation = TrainDataProvider(validationSet)
+dataProviderTest = TrainDataProvider(testSet)
 
 
 # plotRawData(formattedData, 30)
@@ -467,8 +631,25 @@ for window in windows:
 		
 		# cnn training
 		if config["do_cnn"]:
-			trainFeatures, trainLabels = trainDataProvider.getTrainableData(start, window)
-			cnn = ConvolutionalNeuralNetwork(trainFeatures, trainLabels, epochs=n_epochs, random_state = ran_state)
+
+			if config["use_pre_split"]:
+
+				if config["use_sliding_window"]:
+					trainFeatures, trainLabels = dataProviderTrain.getTrainableDataSlidingWindow(start, window)
+					validateFeatures, validateLabels = dataProviderValidation.getTrainableDataSlidingWindow(start, window)
+					testFeatures, testLabels = dataProviderTest.getTrainableDataSlidingWindow(start, window)
+				else:
+					trainFeatures, trainLabels = dataProviderTrain.getTrainableData(start, window)
+					validateFeatures, validateLabels = dataProviderValidation.getTrainableData(start, window)
+					testFeatures, testLabels = dataProviderTest.getTrainableData(start, window)
+				cnn = ConvolutionalNeuralNetwork(trainFeatures, trainLabels, validateFeatures, validateLabels, testFeatures, testLabels, epochs=n_epochs, random_state = ran_state)
+			else:
+				if config["use_sliding_window"]:
+					trainFeatures, trainLabels = trainDataProvider.getTrainableDataSlidingWindow(start, window)
+				else:
+					trainFeatures, trainLabels = trainDataProvider.getTrainableData(start, window)
+				cnn = ConvolutionalNeuralNetwork2(trainFeatures, trainLabels, epochs=n_epochs, random_state = ran_state)
+
 			# cnn confusion matrix
 			confusionMatrixFileName = outputFolderPath+"ConfusionMatrix-CNN-"+str(start)+"-"+str(window)+".png"
 			plot_confusion_matrix(cnn.confusionMatrices[0], ["negative", "neutral", "positive"], start=start, window=window, fileName=confusionMatrixFileName, modelName="CNN")
@@ -476,8 +657,24 @@ for window in windows:
 		
 		# fcnn training
 		if config["do_fcnn"]:
-			trainFeaturesFCNN, trainLabelsFCNN = trainDataProvider.getTrainableDataFCNN(start, window)
-			fcnn = FullyConnectedNetwork(trainFeaturesFCNN, trainLabelsFCNN, epochs=n_epochs, random_state = ran_state)
+			# trainFeaturesFCNN, trainLabelsFCNN = trainDataProvider.getTrainableDataFCNN(start, window)
+			if config["use_pre_split"]:
+				if config["use_sliding_window"]:
+					trainFeaturesFCNN, trainLabelsFCNN = dataProviderTrain.getTrainableDataSlidingWindow(start, window)
+					validationFeaturesFCNN, validationLabelsFCNN = dataProviderValidation.getTrainableDataSlidingWindow(start, window)
+					testFeaturesFCNN, testLabelsFCNN = dataProviderTest.getTrainableDataSlidingWindow(start, window)
+				else:
+					trainFeaturesFCNN, trainLabelsFCNN = dataProviderTrain.getTrainableDataFCNN(start, window)
+					validationFeaturesFCNN, validationLabelsFCNN = dataProviderValidation.getTrainableDataFCNN(start, window)
+					testFeaturesFCNN, testLabelsFCNN = dataProviderTest.getTrainableDataFCNN(start, window)
+				fcnn = FullyConnectedNetwork(trainFeaturesFCNN, trainLabelsFCNN, validationFeaturesFCNN, validationLabelsFCNN, testFeaturesFCNN, testLabelsFCNN, epochs=n_epochs, random_state = ran_state)
+			else:
+				if config["use_sliding_window"]:
+					trainFeaturesFCNN, trainLabelsFCNN = trainDataProvider.getTrainableDataSlidingWindow(start, window)
+				else:
+					trainFeaturesFCNN, trainLabelsFCNN = trainDataProvider.getTrainableDataFCNN(start, window)
+				fcnn = FullyConnectedNetwork2(trainFeaturesFCNN, trainLabelsFCNN, epochs=n_epochs, random_state = ran_state)
+
 			# fcnn confusion matrix
 			confusionMatrixFileName = outputFolderPath+"ConfusionMatrix-FCNN-"+str(start)+"-"+str(window)+".png"
 			plot_confusion_matrix(fcnn.confusionMatrices[0], ["negative", "neutral", "positive"], start=start, window=window, fileName=confusionMatrixFileName, modelName="FCNN")

@@ -1,0 +1,1 @@
+[{"state": 30, "start": 0, "window": 60, "cnn_efficiency": 34.48275923728943, "cnn_error": 0.0}, {"state": 30, "start": 0, "window": 90, "cnn_efficiency": 33.103448152542114, "cnn_error": 0.0}, {"state": 30, "start": 0, "window": 120, "cnn_efficiency": 34.48275923728943, "cnn_error": 0.0}]

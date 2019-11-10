@@ -4,8 +4,288 @@
 		"selected_items":
 		[
 			[
+				"ou",
+				"out_file"
+			],
+			[
+				"fra",
+				"frame"
+			],
+			[
+				"fil",
+				"file_data"
+			],
+			[
+				"fr",
+				"frame"
+			],
+			[
+				"fi",
+				"file_data"
+			],
+			[
+				"Tr",
+				"True"
+			],
+			[
+				"use",
+				"use_sliding_window"
+			],
+			[
+				"fea",
+				"feature"
+			],
+			[
+				"fe",
+				"features"
+			],
+			[
+				"kurt",
+				"kurtosis"
+			],
+			[
+				"negativ",
+				"negativeTrain"
+			],
+			[
+				"ske",
+				"skewness"
+			],
+			[
+				"va",
+				"validationSet"
+			],
+			[
+				"vali",
+				"validationSet"
+			],
+			[
+				"pri",
+				"printBlockEndSeperator"
+			],
+			[
+				"testla",
+				"testLabelsFCNN"
+			],
+			[
+				"testf",
+				"testFeaturesFCNN"
+			],
+			[
+				"tes",
+				"testLabels"
+			],
+			[
+				"dataPro",
+				"dataProviderTrain"
+			],
+			[
+				"dataPr",
+				"dataProviderValidation"
+			],
+			[
+				"x",
+				"x_train"
+			],
+			[
+				"val",
+				"validateFeatures"
+			],
+			[
+				"Tra",
+				"TrainDataProvider"
+			],
+			[
+				"nega",
+				"negativeRemaining"
+			],
+			[
+				"positi",
+				"positiveFormatted"
+			],
+			[
+				"neutra",
+				"neutralFormatted"
+			],
+			[
+				"tra",
+				"trainCountPerClass"
+			],
+			[
 				"ran",
-				"random_state"
+				"ran_state"
+			],
+			[
+				"for",
+				"formattedData"
+			],
+			[
+				"base",
+				"baselineMean"
+			],
+			[
+				"in",
+				"interestingZone"
+			],
+			[
+				"min",
+				"minimumIndex"
+			],
+			[
+				"mi",
+				"minimumIndex"
+			],
+			[
+				"cen",
+				"centralBaseline"
+			],
+			[
+				"neuta",
+				"neutralLine"
+			],
+			[
+				"pup",
+				"pupilListSmoothed"
+			],
+			[
+				"ce",
+				"centralBaseline"
+			],
+			[
+				"ba",
+				"baselineArea"
+			],
+			[
+				"plt",
+				"plt"
+			],
+			[
+				"is",
+				"isShowingPlot"
+			],
+			[
+				"plo",
+				"plotThisTrial"
+			],
+			[
+				"co",
+				"corrected"
+			],
+			[
+				"pu",
+				"pupilListSmoothed"
+			],
+			[
+				"ex",
+				"extend"
+			],
+			[
+				"pupil",
+				"pupilList"
+			],
+			[
+				"du",
+				"dummy"
+			],
+			[
+				"mea",
+				"mean_positive"
+			],
+			[
+				"mean",
+				"mean_neutral"
+			],
+			[
+				"posi",
+				"positive_data"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"neu",
+				"neutralData"
+			],
+			[
+				"fig",
+				"figure"
+			],
+			[
+				"gene",
+				"generate_mean_graph"
+			],
+			[
+				"pr",
+				"printBlockStartSeperator"
+			],
+			[
+				"add",
+				"add_subplot"
+			],
+			[
+				"do",
+				"do_plot"
+			],
+			[
+				"tsv",
+				"tsvData"
+			],
+			[
+				"prin",
+				"printSeperator"
+			],
+			[
+				"y",
+				"y_test"
+			],
+			[
+				"neut",
+				"neutralLabels"
+			],
+			[
+				"neg",
+				"negativeLabels"
+			],
+			[
+				"targ",
+				"targetClassSize"
+			],
+			[
+				"ne",
+				"negativeLabels"
+			],
+			[
+				"neutr",
+				"neutralLabels"
+			],
+			[
+				"new",
+				"newData"
+			],
+			[
+				"spe",
+				"speedLine"
+			],
+			[
+				"cor",
+				"correction2"
+			],
+			[
+				"repl",
+				"replaceBlankByLinearInterpolation"
+			],
+			[
+				"pupi",
+				"pupilListSmoothed"
+			],
+			[
+				"forma",
+				"formattedData"
+			],
+			[
+				"fo",
+				"formattedData"
 			],
 			[
 				"ra",
@@ -44,32 +324,8 @@
 				"debugCnt"
 			],
 			[
-				"repl",
-				"replaceBySpline"
-			],
-			[
-				"pu",
-				"pupilList"
-			],
-			[
-				"base",
-				"baselineList"
-			],
-			[
-				"ex",
-				"experimentData"
-			],
-			[
-				"val",
-				"validBaseline"
-			],
-			[
 				"bla",
 				"blackList"
-			],
-			[
-				"in",
-				"invalid"
 			],
 			[
 				"lef",
@@ -84,10 +340,6 @@
 				"right"
 			],
 			[
-				"do",
-				"doPrint"
-			],
-			[
 				"smo",
 				"smooth"
 			],
@@ -100,44 +352,16 @@
 				"data"
 			],
 			[
-				"new",
-				"newVal"
-			],
-			[
 				"to",
 				"tolist"
-			],
-			[
-				"pup",
-				"pupilList"
-			],
-			[
-				"ba",
-				"baselineTime"
 			],
 			[
 				"bas",
 				"baselineList"
 			],
 			[
-				"is",
-				"isBaseline"
-			],
-			[
 				"s",
 				"split"
-			],
-			[
-				"fo",
-				"folderName"
-			],
-			[
-				"fil",
-				"file"
-			],
-			[
-				"fi",
-				"fileNames"
 			],
 			[
 				"newf",
@@ -160,10 +384,6 @@
 				"plot"
 			],
 			[
-				"mea",
-				"meanValue"
-			],
-			[
 				"da",
 				"dataList"
 			],
@@ -180,10 +400,6 @@
 				"loadInputData"
 			],
 			[
-				"ou",
-				"outputFolder"
-			],
-			[
 				"proce",
 				"processedData"
 			],
@@ -196,16 +412,8 @@
 				"latestOutputFile"
 			],
 			[
-				"for",
-				"formatter"
-			],
-			[
 				"o",
 				"outputFileName"
-			],
-			[
-				"ne",
-				"neg1"
 			],
 			[
 				"res",
@@ -234,10 +442,6 @@
 			[
 				"Mo",
 				"MovingWindowFFT"
-			],
-			[
-				"mean",
-				"meanFFTFreqSlope"
 			],
 			[
 				"slo",
@@ -284,16 +488,8 @@
 				"positivePlot"
 			],
 			[
-				"neu",
-				"neutralPlot"
-			],
-			[
 				"re",
 				"result"
-			],
-			[
-				"plo",
-				"plotData"
 			],
 			[
 				"si",
@@ -318,202 +514,6 @@
 			[
 				"wi",
 				"width\tproperty"
-			],
-			[
-				"metho",
-				"methods"
-			],
-			[
-				"modu",
-				"module"
-			],
-			[
-				"Mod",
-				"ModuleButtons"
-			],
-			[
-				"dis",
-				"displayObject"
-			],
-			[
-				"bo",
-				"border-bottom\tproperty"
-			],
-			[
-				"tex",
-				"text-align\tproperty"
-			],
-			[
-				"Res",
-				"ResourceButtons"
-			],
-			[
-				"Re",
-				"ResourceButtons"
-			],
-			[
-				"r",
-				"rgba()\tbackground-color"
-			],
-			[
-				"fon",
-				"font-size\tproperty"
-			],
-			[
-				"select",
-				"selectMode"
-			],
-			[
-				"ht",
-				"html"
-			],
-			[
-				"sco",
-				"scoreLabel"
-			],
-			[
-				"poda-cl",
-				"poda-clickable-upscore"
-			],
-			[
-				"sele",
-				"selectScore"
-			],
-			[
-				"remo",
-				"removeClass"
-			],
-			[
-				"cur",
-				"currentTarget"
-			],
-			[
-				"la",
-				"lastElementChild"
-			],
-			[
-				"text",
-				"text-right"
-			],
-			[
-				"se",
-				"select\tTag"
-			],
-			[
-				"img",
-				"imgList"
-			],
-			[
-				"ar",
-				"argv"
-			],
-			[
-				"te",
-				"temp"
-			],
-			[
-				"his",
-				"history"
-			],
-			[
-				"no",
-				"nowrap"
-			],
-			[
-				"ter",
-				"termsData"
-			],
-			[
-				"fac",
-				"facetData"
-			],
-			[
-				"tm",
-				"tmpl_facet"
-			],
-			[
-				"pad",
-				"padding-right"
-			],
-			[
-				"pa",
-				"padding-left"
-			],
-			[
-				"hi",
-				"hidden"
-			],
-			[
-				"bor",
-				"border-bottom"
-			],
-			[
-				"bord",
-				"border-bottom"
-			],
-			[
-				"poda",
-				"poda-tabs"
-			],
-			[
-				"di",
-				"div\tTag"
-			],
-			[
-				"li",
-				"link\tTag"
-			],
-			[
-				"que",
-				"querySelector"
-			],
-			[
-				"write",
-				"writeCsvFile"
-			],
-			[
-				"l",
-				"layer_numbers"
-			],
-			[
-				"tra",
-				"training_data"
-			],
-			[
-				"pare",
-				"parentNode"
-			],
-			[
-				"poda-",
-				"poda-collapse"
-			],
-			[
-				"ma",
-				"margin-bottom"
-			],
-			[
-				"add",
-				"addClass"
-			],
-			[
-				"pip",
-				"pipeElement"
-			],
-			[
-				"el",
-				"element"
-			],
-			[
-				"highligh",
-				"highLightScope"
-			],
-			[
-				"y",
-				"y_test"
-			],
-			[
-				"Y",
-				"y_train"
 			]
 		]
 	},
@@ -523,8 +523,25 @@
 			"file": "Evaluation/Evaluation.py",
 			"settings":
 			{
-				"buffer_size": 11835,
+				"buffer_size": 23846,
 				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "input_data/WindowSlicing.py",
+			"settings":
+			{
+				"buffer_size": 618,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Evaluation/FeatureDataProvider/FFT.py",
+			"settings":
+			{
+				"buffer_size": 742,
 				"line_ending": "Unix"
 			}
 		},
@@ -532,7 +549,16 @@
 			"file": "Evaluation/ModelProvider/FullyConnectedNetwork.py",
 			"settings":
 			{
-				"buffer_size": 3475,
+				"buffer_size": 6151,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Evaluation/ModelProvider/FullyConnectedNetwork2.py",
+			"settings":
+			{
+				"buffer_size": 5650,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -541,7 +567,16 @@
 			"file": "Evaluation/ModelProvider/ConvolutionalNeuralNetwork.py",
 			"settings":
 			{
-				"buffer_size": 3934,
+				"buffer_size": 7246,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Evaluation/ModelProvider/ConvolutionalNeuralNetwork2.py",
+			"settings":
+			{
+				"buffer_size": 6657,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -550,7 +585,7 @@
 			"file": "Evaluation/tsvparser.py",
 			"settings":
 			{
-				"buffer_size": 6212,
+				"buffer_size": 11565,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -559,7 +594,7 @@
 			"file": "Evaluation/Helper.py",
 			"settings":
 			{
-				"buffer_size": 1983,
+				"buffer_size": 4066,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -568,7 +603,7 @@
 			"file": "Evaluation/TrainDataProvider/TrainDataProvider.py",
 			"settings":
 			{
-				"buffer_size": 2282,
+				"buffer_size": 2500,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -577,7 +612,7 @@
 			"file": "Evaluation/Formatter/Formatter.py",
 			"settings":
 			{
-				"buffer_size": 1690,
+				"buffer_size": 3369,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -646,10 +681,12 @@
 	[
 		"/Users/user/Thesis/experiments",
 		"/Users/user/Thesis/experiments/Evaluation",
-		"/Users/user/Thesis/experiments/Evaluation/DataCollector"
+		"/Users/user/Thesis/experiments/Evaluation/DataCollector",
+		"/Users/user/Thesis/experiments/Evaluation/Formatter"
 	],
 	"file_history":
 	[
+		"/Users/user/Thesis/experiments/untitled.sublime-project",
 		"/Users/user/Thesis/tsvparser.py",
 		"/Users/user/Thesis/experiments/DataExtractor/DataExtractor.py",
 		"/Users/user/Thesis/projects/assets/filesaver.py",
@@ -776,12 +813,11 @@
 		"/Users/user/Workshop/Thesis/fwddata/patrick-saad/experiment-1/ml-models/generate-models.py",
 		"/Users/user/Workshop/Thesis/fwddata/patrick-saad/experiment-1/ml-models/experiments/experiment-2/processed_data/data_values_with_class/2.csv",
 		"/Users/user/Workshop/Thesis/fwddata/patrick-saad/experiment-1/ml-models/experiment-1/processed_data/data_values_with_class/1.csv",
-		"/Users/user/Workshop/Thesis/fwddata/patrick-saad/experiment-1/ml-models/experiments/experiment-2/processed_data/data_values_with_class/1.csv",
-		"/Users/user/Desktop/Assignment 1 - Image Analysis/binarization.m"
+		"/Users/user/Workshop/Thesis/fwddata/patrick-saad/experiment-1/ml-models/experiments/experiment-2/processed_data/data_values_with_class/1.csv"
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
@@ -815,7 +851,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -824,131 +860,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11835,
+						"buffer_size": 23846,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10014,
-								10014
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 5604.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Evaluation/ModelProvider/FullyConnectedNetwork.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3475,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1448,
-								1448
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 1.0,
-						"translation.y": 426.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Evaluation/ModelProvider/ConvolutionalNeuralNetwork.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3934,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								575,
-								575
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Evaluation/tsvparser.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6212,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2567,
-								2567
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 155.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "Evaluation/Helper.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1983,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								570,
-								570
+								1065,
+								1088
 							]
 						],
 						"settings":
@@ -960,24 +880,140 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "input_data/WindowSlicing.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 618,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								572,
+								572
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Evaluation/FeatureDataProvider/FFT.py",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 742,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Evaluation/ModelProvider/FullyConnectedNetwork.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6151,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								443,
+								443
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 113.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Evaluation/ModelProvider/FullyConnectedNetwork2.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5650,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2781,
+								2781
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1258.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "Evaluation/TrainDataProvider/TrainDataProvider.py",
+					"file": "Evaluation/ModelProvider/ConvolutionalNeuralNetwork.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2282,
+						"buffer_size": 7246,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								220,
-								220
+								1223,
+								1024
 							]
 						],
 						"settings":
@@ -986,27 +1022,57 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 262.0,
+						"translation.y": 323.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "Evaluation/Formatter/Formatter.py",
+					"file": "Evaluation/ModelProvider/ConvolutionalNeuralNetwork2.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1690,
+						"buffer_size": 6657,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1680,
-								1680
+								3872,
+								3879
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1632.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "Evaluation/tsvparser.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11565,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9797,
+								9797
 							]
 						],
 						"settings":
@@ -1015,14 +1081,101 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 194.0,
+						"translation.y": 5331.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "Evaluation/Helper.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4066,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								79,
+								79
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "Evaluation/TrainDataProvider/TrainDataProvider.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2500,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								886,
+								886
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 10,
+					"file": "Evaluation/Formatter/Formatter.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3369,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								899,
+								899
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 19.0,
+						"translation.y": 71.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
 					"file": "Evaluation/DataCollector/DataCollector.py",
 					"semi_transient": false,
 					"settings":
@@ -1034,8 +1187,8 @@
 						"selection":
 						[
 							[
-								272,
-								272
+								774,
+								849
 							]
 						],
 						"settings":
@@ -1044,10 +1197,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 245.0,
+						"translation.y": 315.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1134,7 +1287,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 250.0,
+	"side_bar_width": 347.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

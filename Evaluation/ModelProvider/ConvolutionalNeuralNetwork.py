@@ -14,14 +14,23 @@ import random
 
 class ConvolutionalNeuralNetwork:
 	
-	def __init__(self, trainFeatures, trainLabels, epochs = 100, random_state = 10):
+	def __init__(self, trainFeatures, trainLabels, validateFeatures, validateLabels, testFeatures, testLabels, epochs = 100, random_state = 10):
 		self.random_state = random_state
+		
 		self.trainFeatures = trainFeatures
 		self.trainLabels = trainLabels
+		self.validateFeatures = validateFeatures
+		self.validateLabels = validateLabels
+		self.testFeatures = testFeatures
+		self.testLabels = testLabels
+
 		self.epochs = epochs
 		self.log = ""
 		# print(trainFeatures.shape)
-		self.trainFeatures.reshape(self.trainFeatures.shape[0], self.trainFeatures.shape[1], 1)
+		# self.trainFeatures.reshape(self.trainFeatures.shape[0], self.trainFeatures.shape[1], 1)
+		# self.validateFeatures.reshape(self.validateFeatures.shape[0], self.validateFeatures.shape[1], 1)
+		# self.testFeatures.reshape(self.testFeatures.shape[0], self.testFeatures.shape[1], 1)
+
 		self.confusionMatrices = []
 		self.yTrue = []
 		self.yPred = []
@@ -109,10 +118,16 @@ class ConvolutionalNeuralNetwork:
 
 		# x_train_temp, x_test, y_train_temp, y_test = train_test_split(self.trainFeatures, self.trainLabels, test_size=0.33, random_state=self.random_state)
 		# x_train, x_validate, y_train, y_validate = train_test_split(x_train_temp, y_train_temp, test_size=0.33, random_state=self.random_state)
-		x_train_temp, x_test, y_train_temp, y_test = self.splitEven(self.trainFeatures, self.trainLabels, test_size=0.20, random_state=self.random_state)
-		x_train, x_validate, y_train, y_validate = self.splitEven(x_train_temp, y_train_temp, test_size=0.33, random_state=self.random_state)
-
 		
+		# x_train_temp, x_test, y_train_temp, y_test = self.splitEven(self.trainFeatures, self.trainLabels, test_size=0.20, random_state=self.random_state)
+		# x_train, x_validate, y_train, y_validate = self.splitEven(x_train_temp, y_train_temp, test_size=0.33, random_state=self.random_state)
+
+		x_train = self.trainFeatures
+		y_train = self.trainLabels
+		x_validate = self.validateFeatures
+		y_validate = self.validateLabels
+		x_test = self.testFeatures
+		y_test = self.testLabels
 
 		n_timesteps, n_features, n_outputs = x_train.shape[1], x_train.shape[2], y_train.shape[1]
 		# print("n_timesteps:", n_timesteps, "n_outputs:", n_outputs)
@@ -140,10 +155,12 @@ class ConvolutionalNeuralNetwork:
 			model = Sequential()
 			model.add(Conv1D(filters=10, kernel_size=5, activation=tf.nn.relu6, kernel_regularizer=tf.keras.regularizers.l2(l=0.01), input_shape=(n_timesteps,n_features)))
 			model.add(Conv1D(filters=5, kernel_size=5, activation=tf.nn.relu6, kernel_regularizer=tf.keras.regularizers.l2(l=0.01)))
+			# model.add(Conv1D(filters=10, kernel_size=5, activation=tf.nn.relu6, input_shape=(n_timesteps,n_features)))
+			# model.add(Conv1D(filters=5, kernel_size=5, activation=tf.nn.relu6))
 			model.add(Dropout(0.5))
-			model.add(MaxPooling1D(pool_size=10))
-			# model.add(Conv1D(filters=10, kernel_size=3, activation=tf.nn.relu6))
-			# model.add(Conv1D(filters=32, kernel_size=3, activation=tf.nn.relu6))
+			model.add(MaxPooling1D(pool_size=5))
+			# model.add(Conv1D(filters=5, kernel_size=3, activation=tf.nn.relu6))
+			# model.add(Conv1D(filters=3, kernel_size=3, activation=tf.nn.relu6))
 			# model.add(Dropout(0.5))
 			# model.add(MaxPooling1D(pool_size=2))
 			model.add(Flatten())

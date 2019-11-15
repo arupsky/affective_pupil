@@ -1,0 +1,1 @@
+{"input_folder": "raw", "model_config": {"epochs": 2000, "verbose": 1, "batch_size": 128, "layers": [15]}, "start_window": [[0, 30], [30, 30], [60, 30], [90, 30], [120, 30], [150, 30]], "train_length": 423, "validation_length": 279, "test_length": 145, "accuracy": "0.31724137931034485"}

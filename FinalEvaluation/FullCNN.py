@@ -4,17 +4,19 @@ from CNN import CNN
 import json
 import tensorflow as tf
 
-folder = "augmented_5000"
+experiment = "CNN"
+# folder = "augmented_5000"
 # folder = "augmented"
 # folder = "raw"
-# folder = "augmented_train_validation"
+folder = "augmented_train_validation"
 start = 0
 window = 150
 
 modelOptions = {}
-modelOptions["epochs"] = 300
-modelOptions["batch_size"] = 64
+modelOptions["epochs"] = 500
+modelOptions["batch_size"] = 128
 modelOptions["verbose"] = 1
+modelOptions["dropout"] = False
 
 layer1 = {
 	"num_filters":10,
@@ -57,8 +59,8 @@ trainFeatures, trainLabels = Helper.getTrainableData(trainSet, start, window)
 validationFeatures, validationLabels = Helper.getTrainableData(validationSet, start, window)
 testFeatures, testLabels = Helper.getTrainableData(testSet, start, window)
 
-# cnn = CNN(trainFeatures, trainLabels, validationFeatures, validationLabels, modelOptions)
-cnn = CNN(trainFeatures, trainLabels, validationFeatures, validationLabels, epochs=500, verbose=0)
+cnn = CNN(trainFeatures, trainLabels, validationFeatures, validationLabels, modelOptions)
+# cnn = CNN(trainFeatures, trainLabels, validationFeatures, validationLabels, epochs=500, verbose=0)
 model = cnn.trainModel()
 _, accuracy = model.evaluate(testFeatures, testLabels, verbose=0)
 print("----------------------")
@@ -71,22 +73,23 @@ print(confusionMatrix)
 print(model.summary())
 
 
-rootFolder = Helper.createNewFolder("report")
-modelFolder = Helper.createNewFolderNamed(rootFolder, "model")
+homeFolder = Helper.createNewFolderNamed("results/" + experiment, folder)
+rootFolder = Helper.createNewFolder(homeFolder)
+# modelFolder = Helper.createNewFolderNamed(rootFolder, "model")
 confusionMatrixFile = rootFolder + "/confusionMatrix.png"
 confusionMatrixNormFile = rootFolder + "/confusionMatrixNormalized.png"
-fileName = modelFolder + "/model.h5"
-# tf.keras.models.save_model(model, fileName)
+# fileName = modelFolder + "/model.h5"
+
 Helper.plot_confusion_matrix(confusionMatrix,["Negative", "Neutral", "positive"],start=start, window = window, fileName=confusionMatrixFile)
 Helper.plot_confusion_matrix(confusionMatrix,["Negative", "Neutral", "positive"],start=start, window = window, fileName=confusionMatrixNormFile, normalize=True)
 
-# serialize model to JSON
-model_json = model.to_json()
-with open(modelFolder + "/model.json", "w") as json_file:
-    json_file.write(model_json)
-# serialize weights to HDF5
-model.save_weights(fileName)
-print("Saved model to disk")
+# # serialize model to JSON
+# model_json = model.to_json()
+# with open(modelFolder + "/model.json", "w") as json_file:
+#     json_file.write(model_json)
+# # serialize weights to HDF5
+# model.save_weights(fileName)
+# print("Saved model to disk")
 
 output = {}
 output["input_folder"] = folder

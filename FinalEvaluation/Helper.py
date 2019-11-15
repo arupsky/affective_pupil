@@ -3,6 +3,7 @@ from scipy  import stats
 import scipy.interpolate as si
 from os import listdir
 from os import makedirs
+from os import path
 from os.path import isfile, join
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
@@ -70,6 +71,15 @@ class Helper:
 			if label == 3:
 				return [0,0,0,1]
 
+	@staticmethod
+	def getClass(label):
+		if label == [1,0,0]:
+			return 0
+		elif label == [0,1,0]:
+			return 1
+		else:
+			return 2
+
 	def plot_confusion_matrix(confusionMatrix, classes,normalize=False,title=None,cmap=plt.cm.Blues,start=0,window=120,fileName="",modelName=""):
 			
 		if not title:
@@ -133,8 +143,10 @@ class Helper:
 
 	@staticmethod
 	def createNewFolderNamed(root, outputFolderName):
-
-		folders = [int(f.split('.')[0]) for f in listdir(root) if not isfile(join(root, f))]
+		if not path.exists(root):
+			print("creating ", root)
+			makedirs(root)
+		folders = [f.split('.')[0] for f in listdir(root) if not isfile(join(root, f))]
 		if outputFolderName in folders:
 			print("folder already exists")
 		else:

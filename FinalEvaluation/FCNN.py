@@ -8,13 +8,12 @@ from tensorflow.keras.layers import MaxPooling1D
 
 class FCNN:
 	"""docstring for CNN"""
-	def __init__(self, trainFeatures, trainLabels, validateFeatures, validateLabels, epochs=500, verbose=0):
+	def __init__(self, trainFeatures, trainLabels, validateFeatures, validateLabels, config={}):
 		self.trainFeatures = trainFeatures
 		self.trainLabels = trainLabels
 		self.validateFeatures = validateFeatures
 		self.validateLabels = validateLabels
-		self.epochs = epochs
-		self.verbose = verbose
+		self.config = config
 
 	def trainModel(self):
 		x_train = self.trainFeatures
@@ -22,11 +21,19 @@ class FCNN:
 		x_validate = self.validateFeatures
 		y_validate = self.validateLabels
 		n_timesteps, n_outputs = x_train.shape[1], y_train.shape[1]
-		batch_size = 64
+		batch_size = 8
 
 		model = Sequential()
-		model.add(Dense(20, input_dim=9, activation='relu'))
-		model.add(Dense(5, activation='relu'))
+		firstTime = True
+		for count in self.config["layers"]:
+			if firstTime:
+				model.add(Dense(count, input_dim=n_timesteps, activation='relu'))
+				firstTime = False
+			else:
+				model.add(Dense(count, activation='relu'))
+			# model.add(Dropout(.4))
+		# model.add(Dense(20, input_dim=9, activation='relu'))
+		# model.add(Dense(5, activation='relu'))
 		model.add(Dense(n_outputs, activation='softmax'))
 
 		# model = Sequential()
@@ -40,6 +47,6 @@ class FCNN:
 		# model.add(Dense(10, activation='relu'))
 		# model.add(Dense(n_outputs, activation='softmax'))
 		model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-		model.fit(x_train, y_train, validation_data=(x_validate, y_validate), epochs=self.epochs, batch_size=batch_size, verbose=self.verbose)
+		model.fit(x_train, y_train, validation_data=(x_validate, y_validate), epochs=self.config["epochs"], batch_size=self.config["batch_size"], verbose=self.config["verbose"])
 		return model
 		

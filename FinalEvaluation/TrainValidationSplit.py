@@ -2,8 +2,8 @@ import json
 import random
 from os import makedirs
 
-input_file_name = "data/augmented_train_validation.json"
-output_folder = "data/splitted/augmented_train_validation"
+input_file_name = "data/augmented_train_raw.json"
+output_folder = "data/splitted/rawtest2"
 
 with open(input_file_name) as inpuFile:
 	data = json.load(inpuFile)

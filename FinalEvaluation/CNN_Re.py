@@ -40,4 +40,10 @@ class CNN_Re:
 		y_validate = validateLabels
 		self.model.fit(x_train, y_train, validation_data=(x_validate, y_validate), epochs=self.modelOption["epochs"], batch_size=self.modelOption["batch_size"], verbose=self.modelOption["verbose"])
 		return self.model
+
+	def trainModel(self, trainFeatures, trainLabels):
+		x_train = trainFeatures
+		y_train = trainLabels
+		self.model.fit(x_train, y_train, epochs=self.modelOption["epochs"], batch_size=self.modelOption["batch_size"], verbose=self.modelOption["verbose"])
+		return self.model
 		

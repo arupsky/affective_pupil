@@ -6,9 +6,9 @@ import scipy.interpolate as si
 
 # input_file_name = "raw.json"
 # output_file_name = "augmented_5000.json"
-input_file_name = "validation.json"
-output_file_name = "augmented_train_validation.json"
-count_per_type = 2000
+input_file_name = "test_raw.json"
+output_file_name = "augmented_test_raw.json"
+count_per_type = 1000
 
 
 def bspline(cv, n=100, degree=3, periodic=False):
@@ -119,8 +119,8 @@ def getBasicStructure(data):
 
 with open(input_file_name) as file:
 	file_data = json.load(file)
-	with open("train.json") as file2:
-		file_data.extend(json.load(file2))
+	# with open("train.json") as file2:
+	# 	file_data.extend(json.load(file2))
 	negative_data = [x for x in file_data if x["type"] == 0]
 	neutral_data = [x for x in file_data if x["type"] == 1]
 	positive_data = [x for x in file_data if x["type"] == 2]

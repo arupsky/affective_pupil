@@ -55,7 +55,7 @@ class Formatter(object):
 				temp["baselineMean"] = minimumDilation
 				temp["pupilListSmoothed"] = [x - minimumDilation for x in dt["pupilListSmoothed"][minimumIndex + 1:self.interestingZone + minimumIndex + 1]]
 			elif self.globalConfig["fixation_as_baseline"]:
-				baselineArea = dt["baselineList"][60:-90]
+				baselineArea = dt["baselineList"][-60:]
 				temp["baselineMean"] = sum(baselineArea)/len(baselineArea)
 				temp["pupilListSmoothed"] = [x - temp["baselineMean"] for x in dt["pupilListSmoothed"][:self.interestingZone]]
 			elif self.globalConfig["fixation_minimum_interpolate"]:
@@ -78,6 +78,7 @@ class Formatter(object):
 			# temp["pupilSkewness"] = Helper.getWholeSkewness(temp["pupilListSmoothed"], 5)
 			# temp["pupilKurtosis"] = Helper.getWholeKurtosis(temp["pupilListSmoothed"], 5)
 			temp["pupilMean"] = sum(temp["pupilListSmoothed"])/self.interestingZone
+			temp["imageName"] = dt["imageName"]
 			processed.append(temp)
 
 

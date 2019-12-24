@@ -7,14 +7,15 @@ import tensorflow as tf
 experiment = "CNN"
 # folder = "augmented_5000"
 # folder = "augmented"
-# folder = "raw"
-folder = "augmented_train_validation"
+folder = "raw"
+# folder = "augmented_train_validation"
+# folder = "rawtest2"
 start = 0
-window = 150
+window = 180
 
 modelOptions = {}
 modelOptions["epochs"] = 500
-modelOptions["batch_size"] = 128
+modelOptions["batch_size"] = 64
 modelOptions["verbose"] = 1
 modelOptions["dropout"] = False
 

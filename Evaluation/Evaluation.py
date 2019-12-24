@@ -35,7 +35,7 @@ plt.rcParams["font.family"] = "Times New Roman"
 config = {}
 
 config["load_from_file"] = False
-config["data_file_path"] = "../input_data/raw.json"
+config["data_file_path"] = "../input_data/raw3.json"
 
 config["dummy"] = False
 config["participant"] = -1
@@ -47,14 +47,14 @@ config["fixation_minimum_interpolate"] = False
 config["do_cnn"] = False
 config["do_fcnn"] = False
 config["generate_confusion_matrix"] = False
-config["generate_mean_graph"] = True
+config["generate_mean_graph"] = False
 config["generate_skewness_graph"] = False
 config["generate_kurtosis_graph"] = False
 
 config["generate_preprocess_graph"] = False   # Fertig
-config["preprocess_graph_count_per_file"] = 2   # Fertig
+config["preprocess_graph_count_per_file"] = 5   # Fertig
 
-config["generate_baseline_normalization_graph"] = True
+config["generate_baseline_normalization_graph"] = False
 config["debug_data_collect"] = False   # Fertig
 config["use_pre_split"] = False
 config["use_sliding_window"] = True
@@ -428,7 +428,7 @@ print(config)
 printBlockEndSeperator()
 
 printBlockStartSeperator()
-outputFolderPath = createNewFolder()
+# outputFolderPath = createNewFolder()
 printBlockEndSeperator()
 
 # dataCollector = DataCollector("../../data/")
@@ -440,6 +440,63 @@ tsvParser = TsvParser("../tobi_data/", globalConfig = config)
 tsvData = tsvParser.loadData()
 print("Data loading complete")
 printBlockEndSeperator()
+
+printBlockStartSeperator()
+# print("individual data processing started")
+# allData = tsvParser.individualData
+# blackList = []
+
+# user = 1
+# for dt in allData:
+# 	processed = tsvParser.processData(dt)
+# 	formatter = Formatter(config)
+# 	processed = formatter.process(processed)
+# 	blackList.append(tsvParser.blackList)
+# 	negative = [x["pupilListSmoothed"] for x in processed if x["type"] == 0]
+# 	neutral = [x["pupilListSmoothed"] for x in processed if x["type"] == 1]
+# 	positive = [x["pupilListSmoothed"] for x in processed if x["type"] == 2]
+# 	negativeMean = getMeanLine(negative)
+# 	neutralMean = getMeanLine(neutral)
+# 	positiveMean = getMeanLine(positive)
+# 	xNegative = [int(i * (1000/60)) for i in range(len(negativeMean[:300]))]
+# 	xNeutral = [int(i * (1000/60)) for i in range(len(neutralMean[:300]))]
+# 	xPositive = [int(i * (1000/60)) for i in range(len(positiveMean[:300]))]
+# 	fig = plt.figure()
+# 	ax1 = fig.add_subplot(111)
+# 	ax1.plot(xNegative, negativeMean[:300], 'r', label="Negative")
+# 	ax1.plot(xNeutral, neutralMean[:300], 'b', label="Neutral")
+# 	ax1.plot(xPositive, positiveMean[:300], 'g', label="Positive")
+# 	plt.xlabel('time (ms)')
+# 	plt.ylabel('pupil size (mm)')
+# 	ax1.legend()
+
+# 	jsonFileName = "../individual/" + str(user) + ".json"
+# 	user = user + 1
+# 	with open(jsonFileName, "w") as jsonFile:
+# 		json.dump(processed, jsonFile)
+
+
+# for idt in blackList:
+# 	processedIdt = tsvParser.processData(idt, False)
+# 	for i in range(len(processedIdt)):
+# 		rawPupil = idt[i]["pupilList"]
+# 		processed = processedIdt[i]["pupilListSmoothed"]
+# 		fig = plt.figure()
+# 		ax1 = fig.add_subplot(211)
+# 		ax2 = fig.add_subplot(212)
+# 		xticks = [int(i * (1000/60)) for i in range(len(rawPupil[:300]))]
+# 		xticks2 = [int(i * (1000/60)) for i in range(len(processed[:300]))]
+# 		ax1.plot(xticks, rawPupil[:300], 'r', label="raw pupil size")
+# 		ax2.plot(xticks2, processed[:300], 'b', label="processed pupil size")
+# 		ax1.legend()
+# 		ax2.legend()
+
+printBlockEndSeperator()
+
+
+
+
+
 
 printBlockStartSeperator()
 print("Data processing started")
@@ -489,9 +546,38 @@ formattedData = formatter.process(tsvData)
 print("Baseline normalization complete")
 printBlockEndSeperator()
 
-# with open(config["data_file_path"], 'w') as outfile:
-# 	json.dump(formattedData, outfile)
 
+
+# printBlockStartSeperator()
+
+# imageNames = []
+# perImageData = {}
+# for dt in formattedData:
+# 	if dt["imageName"] not in imageNames:
+# 		imageNames.append(dt["imageName"])
+# 		perImageData[dt["imageName"]] = []
+
+# 	perImageData[dt["imageName"]].append(dt["pupilListSmoothed"])
+
+# for imageName in imageNames:
+# 	fig = plt.figure()
+# 	ax = fig.add_subplot(111)
+
+# 	for pplDt in perImageData[imageName]:
+# 		xticks = [int(i * (1000/60)) for i in range(len(pplDt[:300]))]
+# 		ax.plot(xticks, pplDt)
+# 		plt.xlabel('time (ms)')
+# 		plt.ylabel('pupil size (mm)')
+
+
+# printBlockEndSeperator()
+
+
+
+with open(config["data_file_path"], 'w') as outfile:
+	json.dump(formattedData, outfile)
+
+"""
 
 printBlockStartSeperator()
 print("Random state : ", ran_state)
@@ -728,6 +814,6 @@ if config["do_fcnn"]:
 # ------------------------------------
 
 
-
+"""
 plt.show()
 

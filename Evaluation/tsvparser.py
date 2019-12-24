@@ -13,6 +13,7 @@ class TsvParser:
 		self.folderName = folderName
 		self.minimumPupilSize = 1.4
 		self.globalConfig = globalConfig
+		self.individualData = []
 
 	def getFileNames(self):
 		fileNames = [f for f in listdir(self.folderName) if (isfile(join(self.folderName, f)) and ".tsv" in f)]
@@ -112,6 +113,7 @@ class TsvParser:
 			# ax.set_title("Raw data")
 			ax.plot(data, 'r', label='Raw data')
 			plt.legend()
+		# dt = Helper.replaceBlankByLinearInterpolation(data)
 		dt = Helper.smooth(data, 5)
 		dt = self.speedOutlierDetection(dt, 10)
 		# if do_plot:
@@ -172,9 +174,10 @@ class TsvParser:
 		return newData
 
 
-	def getNewTrialData(self, typeIndex):
+	def getNewTrialData(self, typeIndex, imageName = ""):
 		trialData = {}
 		trialData["type"] = int(typeIndex)
+		trialData["imageName"] = imageName
 		trialData["baselineList"] = []
 		trialData["baselineTime"] = []
 		trialData["baselineMean"] = 0
@@ -217,16 +220,59 @@ class TsvParser:
 				trialData["pupilList"].append(0)
 				trialData["pupilTime"].append(int(parts[0]))
 
+	def getMaxBlankLength(self, pupilData):
+		counter = 0
+		if pupilData[0] == 0:
+			counter = 1
+		maxLength = 0
+		currentLength = 0
+		foundZero = pupilData[0] == 0
+
+		for y in pupilData:
+			if y == 0:
+				if not foundZero:
+					foundZero = True
+					counter = counter + 1
+					currentLength = 0
+				currentLength = currentLength + 1
+			else:
+				if foundZero:
+					foundZero = False
+					if currentLength > maxLength:
+						maxLength = currentLength
+					currentLength = 0
+
+
+		if currentLength != 0:
+			if currentLength > maxLength:
+				maxLength = currentLength
+			counter = counter + 1
+
+		return maxLength, counter
+
+
+
 	def hasTooManyInvalidData(self, trialData):
-		invalid = sum([1 for x in trialData['pupilList'][:300] if x == 0])
-		if invalid > 70:
+		# print("trial data ", len(trialData['pupilList'][:300]), "baseline", len(trialData['baselineList']))
+		maxLength, counter = self.getMaxBlankLength(trialData['pupilList'][:300])
+		if maxLength > 40:
 			return True
-
-		validBaseline = [x for x in trialData['baselineList'][-30:] if x != 0]
-		if len(validBaseline) < 10:
+		maxLength, counter = self.getMaxBlankLength(trialData['baselineList'][-200:])
+		if maxLength > 40:
 			return True
-
 		return False
+
+		# invalid = sum([1 for x in trialData['pupilList'][:300] if x == 0])
+		# if invalid > 50:
+		# 	return True
+
+		# # validBaseline = [x for x in trialData['baselineList'][-30:] if x != 0]
+		# validRequired = int(len(trialData['baselineList'][:-200]) * .6)
+		# validBaseline = [x for x in trialData['baselineList'][:-200] if x != 0]
+		# if len(validBaseline) < validRequired:
+		# 	return True
+
+		# return False
 
 	def processFile(self,fileName):
 		with open(self.folderName + "/" + fileName) as f:
@@ -251,7 +297,7 @@ class TsvParser:
 				
 				if counter%2 == 0: # found data for new trial
 					p = lastStimuliName.split('_')
-					trialData = self.getNewTrialData(p[1])
+					trialData = self.getNewTrialData(p[1], p[3])
 					experimentData.append(trialData)
 
 				counter = counter + 1
@@ -302,30 +348,44 @@ class TsvParser:
 
 		return experimentData
 
-	def processData(self, experimentData):
+	def processData(self, experimentData, invalidCheck = True):
 		cnt = 0
 		# debugCnt = list(range(len(experimentData)))
 		debugCnt = list(range(self.globalConfig["preprocess_graph_count_per_file"]))
 		# debugCnt = [2]
 
 
-		blackList = []
+		self.blackList = []
 		for trialData in experimentData:
 			if self.globalConfig["debug_data_collect"]:
 				print("--------------------------------------------", cnt)
 
-			if self.hasTooManyInvalidData(trialData):
-				blackList.append(trialData)
+			if invalidCheck and self.hasTooManyInvalidData(trialData):
+				self.blackList.append(trialData)
 				if self.globalConfig["debug_data_collect"]:
 					print("### data ", str(cnt), " added to blacklist due to too many invalid data")
 				continue
+
+
 
 			# validBaseline = [x for x in trialData['baselineList'][-30:] if x != 0]
 			# baselineMean = sum(validBaseline)/len(validBaseline)
 
 			# if cnt in debugCnt:
 			# 	plt.figure()
-			# 	plt.plot(trialData["pupilList"][:300], label='Raw data')
+			# 	# temp = []
+			# 	# for i in range(300):
+			# 	# 	s = trialData["pupilList"][i]
+			# 	# 	t = int(i * (1000/60))
+			# 	# 	temp.append([t,s]) 
+			# 	xticks = [int(i * (1000/60)) for i in range(300)]
+			# 	plt.plot(xticks, trialData["pupilList"][:300], label='Raw data')
+			# 	# plt.plot(temp, label='Raw Data')
+			# 	plt.xlabel('time (ms)')
+			# 	plt.ylabel('pupil size (mm)')
+			# 	# 
+			# 	# plt.xticks(xticks)
+			# 	plt.legend()
 
 			# temp = trialData["baselineList"][]
 			# print("baseline length ", len(trialData["baselineList"]), ", pupilList length ", len(trialData["pupilList"])) 
@@ -355,7 +415,7 @@ class TsvParser:
 			cnt = cnt + 1
 			
 
-		for dt in blackList:
+		for dt in self.blackList:
 			experimentData.remove(dt)
 
 		return experimentData
@@ -370,7 +430,9 @@ class TsvParser:
 		fileNames = self.getFileNames()
 		data = []
 		for fileName in fileNames:
-			data.extend(self.processFile(fileName))
+			temp = self.processFile(fileName)
+			data.extend(temp)
+			self.individualData.append(temp)
 		return data
 
 	def loadIndividualData(self, participant):

@@ -18,7 +18,7 @@ class Helper:
 		for i in range(len(data)):
 			for j in range(window):
 				features[i][j][0] = data[i][key][start + j]
-			labels[i] = Helper.getLabel(data[i]["type"], 3)
+			labels[i] = Helper.getLabel(data[i]["type"], classCount)
 		# print(np.array(features).shape)
 		# return np.array(features), np.array(labels)
 		# features = np.reshape(features, (features.shape[0],1,features.shape[1]))
@@ -26,6 +26,7 @@ class Helper:
 		# return np.reshape(features, (features.shape[0],1,features.shape[1])), np.reshape(labels,(labels.shape[0],1,labels.shape[1]))
 		return features, labels
 
+	@staticmethod
 	def getTrainableDataFCNN(data, start, window, classCount=3, key="pupilListSmoothed"):
 
 		features = np.random.random((len(data),9))
@@ -46,9 +47,53 @@ class Helper:
 			features[i][7] = max(dt)
 			features[i][8] = max(dt) - min(dt)
 
-			labels[i] = Helper.getLabel(data[i]["type"], 3)
+			labels[i] = Helper.getLabel(data[i]["type"], classCount)
 
 		return features, labels
+
+	@staticmethod
+	def getTrainableDataFCNNReducedFeature(data, start, window, classCount=3, key="pupilListSmoothed"):
+
+		features = np.random.random((len(data),1,3))
+		labels = np.random.random((len(data),classCount))
+
+		for i in range(len(data)):
+			
+			# dt = [d - self.data[i]["baselineMean"] for d in self.data[i]["pupilListSmoothed"][start:start+window]]
+			dt = [d for d in data[i][key][start:start+window]]
+			features[i][0][0] = np.std(dt)
+			features[i][0][1] = stats.mode(dt)[0][0]
+			features[i][0][2] = stats.skew(dt)
+
+
+			labels[i] = Helper.getLabel(data[i]["type"], classCount)
+
+		return features, labels
+
+	@staticmethod
+	def getTrainingDataSlidingWindowMlp(data, dataLength, sampleCount, classCount=3, overlap=0, key="pupilListSmoothed"):
+		features = np.random.random((len(data), sampleCount, 3))
+		labels = np.random.random((len(data),classCount))
+
+		defaultWindowSize = int(dataLength / sampleCount)
+		overlap = min(overlap, .5)
+		window = defaultWindowSize + defaultWindowSize * overlap
+
+		for i in range(sampleCount):
+			start = max(i * defaultWindowSize - defaultWindowSize * sampleCount, 0)
+			
+			for j in range(len(data)):
+				dt = [d for d in data[j][key][start:start+window]]
+				features[j][i][0] = np.std(dt)
+				features[j][i][1] = stats.mode(dt)[0][0]
+				features[j][i][2] = stats.skew(dt)
+
+		for i in range(len(data)):
+			labels[i] = Helper.getLabel(data[i]["type"], classCount)
+
+		return features, labels
+
+
 
 	@staticmethod
 	def getLabel(label, classCount):
@@ -70,6 +115,12 @@ class Helper:
 				return [0,0,1,0]
 			if label == 3:
 				return [0,0,0,1]
+		elif classCount == 2:
+			if label == 0:
+				return [1,0]
+			elif label == 1:
+				return [0,1]
+
 
 	@staticmethod
 	def getClass(label):

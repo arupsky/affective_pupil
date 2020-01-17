@@ -1,1 +1,0 @@
-[{"experiment": "CNN", "dataType": "augmented", "folder": "engine_results/7/class_2/individual_classifier/7/augmented/CNN"}, {"experiment": "MLP", "dataType": "augmented", "folder": "engine_results/7/class_2/individual_classifier/7/augmented/MLP"}, {"experiment": "MLP", "dataType": "augmented", "folder": "engine_results/7/class_2/individual_classifier/7/augmented/SlidingWindow"}]

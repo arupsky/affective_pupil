@@ -1,1 +1,0 @@
-[{"experiment": "CNN", "dataType": "raw", "folder": "engine_results/7/class_2/individual_classifier/6/raw/CNN"}, {"experiment": "MLP", "dataType": "raw", "folder": "engine_results/7/class_2/individual_classifier/6/raw/MLP"}, {"experiment": "MLP", "dataType": "raw", "folder": "engine_results/7/class_2/individual_classifier/6/raw/SlidingWindow"}]

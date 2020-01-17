@@ -3,6 +3,8 @@ import json
 from CNN_Re import CNN_Re
 from FCNN_Re import FCNN_Re
 import tensorflow as tf
+import matplotlib.pyplot as plt
+import numpy as np
 
 class Experiment:
 
@@ -64,8 +66,10 @@ class Experiment:
 		for info in self.matrixInfo:
 			confusionMatrixFile = info["folder"] + "/confusionMatrix.png"
 			confusionMatrixNormFile = info["folder"] + "/confusionMatrixNormalized.png"
-			Helper.plot_confusion_matrix(info["matrix"], self.getTypeStrings(),start=info["start"], window = info["window"], fileName=confusionMatrixFile)
-			Helper.plot_confusion_matrix(info["matrix"], self.getTypeStrings(),start=info["start"], window = info["window"], fileName=confusionMatrixNormFile, normalize=True)
+			numpyFile = info["folder"] + "/matrix.npy"
+			np.save(numpyFile, info["matrix"])
+			Helper.plot_confusion_matrix(info["matrix"], self.getTypeStrings(),start=info["start"], window = info["window"], fileName=confusionMatrixFile, title="")
+			Helper.plot_confusion_matrix(info["matrix"], self.getTypeStrings(),start=info["start"], window = info["window"], fileName=confusionMatrixNormFile, normalize=True, title="")
 
 
 
@@ -219,7 +223,7 @@ globalFolders = [folderGlobal2, folderGlobal3, folderGlobal4]
 individualFolders = [folderIndividual2, folderIndividual3, folderIndividual4]
 foldersInRoot = ["raw", "augmented", "augmented_train"]
 
-classes = [2, 3, 4]
+classes = [2,3,4]
 
 def getDataFoldersForClass(className):
 	if className == 2:
@@ -292,7 +296,7 @@ with open(resultFolder + "/info.json", "w") as file:
 	json.dump(trainInfoList, file)
 
 
-
+plt.show()
 	
 
 

@@ -131,6 +131,131 @@ class Helper:
 		else:
 			return 2
 
+	def plotConfusionMatrices(confusionMatrices, classes, normalize=False,cmap=plt.cm.Blues, fileName="", title=""):
+		fig, axes = plt.subplots(4,3, figsize=(5.5,7.5))
+		plt.subplots_adjust(left=.12, bottom=.14, right=.90, top=.90, wspace=.4, hspace=.6)
+		# fig.suptitle(title, fontsize=14)
+		for i in range(9):
+			cm = confusionMatrices[i]
+			ax = axes[int(i/3)][(i%3)]
+			im = ax.imshow(cm, interpolation='nearest', cmap=cmap)
+
+			ax.set(xticks=np.arange(cm.shape[1]),
+						 yticks=np.arange(cm.shape[0]),
+						 # ... and label them with the respective list entries
+						 title="Participant " + str(i+1),
+						 xticklabels=classes, yticklabels=classes,
+						 ylabel='True label',
+						 xlabel='Predicted label')
+			ax.tick_params(
+			    axis='x',          # changes apply to the x-axis
+			    which='both',      # both major and minor ticks are affected
+			    bottom=False,      # ticks along the bottom edge are off
+			    top=False,         # ticks along the top edge are off
+			    labelbottom=False, labelleft=False) # labels along the bottom edge are off
+			ax.tick_params(
+			    axis='y',          # changes apply to the x-axis
+			    which='both',      # both major and minor ticks are affected
+			    bottom=False,      # ticks along the bottom edge are off
+			    top=False,         # ticks along the top edge are off
+			    labelbottom=False,labelleft=False) # labels along the bottom edge are off
+			plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
+							 rotation_mode="anchor")
+			
+			fmt = '.2f' if normalize else 'd'
+			thresh = cm.max() / 1.5
+			for i in range(cm.shape[0]):
+					for j in range(cm.shape[1]):
+							ax.text(j, i, format(cm[i, j], fmt),
+											ha="center", va="center",
+		
+											color="white" if cm[i, j] > thresh else "black")
+		# fig.tight_layout()
+		for i in range(9,12):
+			ax = axes[int(i/3)][(i%3)]
+			ax.axis('off')
+
+		cm = confusionMatrices[9]
+		ax = axes[3][1]
+		ax.axis('on')
+		im = ax.imshow(cm, interpolation='nearest', cmap=cmap)
+		ax.set(xticks=np.arange(cm.shape[1]),
+					 yticks=np.arange(cm.shape[0]),
+					 # ... and label them with the respective list entries
+					 title="Participant " + str(i+1),
+					 xticklabels=classes, yticklabels=classes,
+					 ylabel='True label',
+					 xlabel='Predicted label')
+		plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
+						 rotation_mode="anchor")
+		
+		fmt = '.2f' if normalize else 'd'
+		thresh = cm.max() / 1.5
+		for i in range(cm.shape[0]):
+				for j in range(cm.shape[1]):
+						ax.text(j, i, format(cm[i, j], fmt),
+										ha="center", va="center",
+		
+										color="white" if cm[i, j] > thresh else "black")
+
+		if fileName != "":
+			filePath = "images/" + fileName + ".png"
+			plt.savefig(filePath, dpi=160)
+
+	def getTitleByDataType(typeId):
+		if typeId == "raw":
+			return "Raw Data"
+		elif typeId == "augmented":
+			return "Augmented Data"
+		elif typeId == "augmented_train":
+			return "Augmented Train Data"
+
+	def plotGlobalConfusionMatrices(confusionMatrices, classes, normalize=False,cmap=plt.cm.Blues, fileName=""):
+		fig, axes = plt.subplots(1,3, figsize=(9,3))
+		plt.subplots_adjust(left=.12, bottom=.2, right=.96, top=1.0, wspace=1.0, hspace=47)
+		
+		for i in range(3):
+			cm = confusionMatrices[i]["matrix"]
+			ax = axes[i]
+			im = ax.imshow(cm, interpolation='nearest', cmap=cmap)
+
+			ax.set(xticks=np.arange(cm.shape[1]),
+						 yticks=np.arange(cm.shape[0]),
+						 # ... and label them with the respective list entries
+						 title=Helper.getTitleByDataType(confusionMatrices[i]["dataType"]),
+						 xticklabels=classes, yticklabels=classes,
+						 ylabel='True label',
+						 xlabel='Predicted label')
+			# ax.tick_params(
+			#     axis='x',          # changes apply to the x-axis
+			#     which='both',      # both major and minor ticks are affected
+			#     bottom=False,      # ticks along the bottom edge are off
+			#     top=False,         # ticks along the top edge are off
+			#     labelbottom=False, labelleft=False) # labels along the bottom edge are off
+			# ax.tick_params(
+			#     axis='y',          # changes apply to the x-axis
+			#     which='both',      # both major and minor ticks are affected
+			#     bottom=False,      # ticks along the bottom edge are off
+			#     top=False,         # ticks along the top edge are off
+			#     labelbottom=False,labelleft=False) # labels along the bottom edge are off
+			plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
+							 rotation_mode="anchor")
+			
+			fmt = '.2f' if normalize else 'd'
+			thresh = cm.max() / 1.25
+			for i in range(cm.shape[0]):
+					for j in range(cm.shape[1]):
+							ax.text(j, i, format(cm[i, j], fmt),
+											ha="center", va="center",
+		
+											color="white" if cm[i, j] > thresh else "black")
+
+		if fileName != "":
+			filePath = "images/globals/" + fileName + ".png"
+			plt.savefig(filePath, dpi=160)
+
+
+
 	def plot_confusion_matrix(confusionMatrix, classes,normalize=False,title=None,cmap=plt.cm.Blues,start=0,window=120,fileName="",modelName=""):
 			
 		if not title:
@@ -175,8 +300,8 @@ class Helper:
 										color="white" if cm[i, j] > thresh else "black")
 		fig.tight_layout()
 		if fileName != "":
-			plt.savefig(fileName, dpi=400)
-		plt.show()
+			plt.savefig(fileName, dpi=300)
+		# plt.show()
 		return ax
 
 	@staticmethod
